@@ -1,0 +1,182 @@
+\part{Lektion 1: Variablen und Datentypen}
+\section{Datentypen}
+\begin{itemize}
+	\item Variablen bezeichnen keinen bestimmten Typ.
+	\item Dynamische Typdeklaration
+	\begin{itemize}
+		\item \textbf{Automatische Zuweisung} des Datentyps bei Deklaration
+		\item Datentyp ist während dem Programmablauf \textbf{veränderbar}
+		\item Wert- und Typänderung erlaubt!
+	\end{itemize}
+\end{itemize}
+\begin{tabular}{|l|l|l|}
+	\hline 
+	\textbf{Datentyp} &\textbf{Beschreibung} &\textbf{False-Wert}\\
+	\hline
+	\texttt{NoneType} &Indikator für nichts, keinen Wert &\texttt{None}\\ 
+	\hline
+	\textbf{Numerische Datentypen}&&\\
+	\texttt{int} &Ganze Zahlen &\texttt{0}\\ 
+	\texttt{float} &Gleitkommazahlen &\texttt{0.0}\\ 
+	\texttt{bool} &Boolesche Werte &\texttt{False}\\ 
+	\texttt{complex} &Komplexe Zahlen &\texttt{0 + 0j}\\ 
+	\hline 
+	\textbf{Sequenzielle Datentypen}&&\\
+	\texttt{str} &Zeichenketten oder Strings &\texttt{"}\\
+	\texttt{list} &Listen (veränderlich) &\texttt{[]}\\
+	\texttt{tuple} &Tupel (unveränderlich) &\texttt{()}\\
+	\texttt{bytes} &Sequenz von Bytes (unveränderlich) &\texttt{b"}\\
+	\texttt{bytearray} &Sequenz von Bytes (veränderlich) &\texttt{bytearray(b")}\\
+	\hline
+	\textbf{Assoziative Datentypen}&&\\
+	\texttt{dict} &Dictionary (Schlüssel-Wert-Paare) &\texttt{{}}\\
+	\hline
+	\textbf{Mengen}&&\\
+	\texttt{set} &Menge mit einmalig vorkommenden Objekten &\texttt{set()}\\
+	\texttt{frozenset} &Wie set jedoch unveränderlich &\texttt{frozenset()}\\
+	\hline
+\end{tabular}\\
+\begin{itemize}
+	\item Python erkennt den Datentyp automatisch
+	\item Python ordnet jeder Variablen den Datentyp zu
+	\item Datentypen prüfen:
+	\begin{itemize}
+		\item[\-] \texttt{type(object)}
+		\item[\-] \texttt{isinstance(object, ct)}
+	\end{itemize}
+	\item Python achtet auf Typverletzungen
+	\item Python kennt keine implizite Typumwandlung
+\end{itemize}
+
+\subsection{Numerische Datentypen}
+\begin{itemize}
+	\item \texttt{bool}
+	\item \texttt{int}
+	\item \texttt{float}
+	\item \texttt{complex}
+\end{itemize}
+
+\subsubsection{Arithmetische Operationen}
+\begin{tabular}{|c|l|}
+	\hline 
+	\textbf{Operator} &\textbf{Beschreibung}\\ 
+	\texttt{x + y} &Summe von \texttt{x} und \texttt{y}\\ 
+	\texttt{x - y} &Differenz von \texttt{x} und \texttt{y}\\ 
+	\texttt{x * y} &Produkt von \texttt{x} und \texttt{y}\\ 
+	\texttt{x / y} &Quotient von \texttt{x} und \texttt{y}\\  
+	\texttt{x // y} &Ganzzahliger Quotient$^1$ von \texttt{x} und \texttt{y}\\ 
+	\texttt{x \% y} &Rest der Division$^1$ von \texttt{x} durch \texttt{y}\\ 
+	\texttt{+x} &Positives Vorzeichen\\ 
+	\texttt{-x} &Negatives Vorzeichen\\ 
+	\texttt{abs(x)} &Betrag von \texttt{x}\\ 
+	\texttt{x**y} &Potenzieren, \texttt{x\textsuperscript{y}}\\ 
+	\hline 
+\end{tabular}\\
+\textsuperscript{1}Nicht definiert für den Datentyp \texttt{complex}\\
+\begin{achtung}
+	\texttt{x++} und \texttt{x--} gibt es \textbf{nicht}, aber \texttt{x += 1, x -0 1, x *= 2, ...}
+\end{achtung}
+
+\subsubsection{Vergleichende Operatoren}
+\begin{tabular}{|c|l|}
+	\hline 
+	\textbf{Operator} &\textbf{Beschreibung}\\ 
+	\hline 
+	\texttt{==} &wahr, wenn \texttt{x} und \texttt{y} gleich sind\\ 
+	\texttt{!=} &wahr, wenn \texttt{x} und \texttt{y} verschieden sind\\ 
+	\texttt{<} &wahr, wenn \texttt{x} kleiner als \texttt{y} ist\textsuperscript{2}\\ 
+	\texttt{<=} &wahr, wenn \texttt{x} kleiner oder gleich \texttt{y} ist\textsuperscript{2}\\ 
+	\texttt{>} &wahr, wenn \texttt{x} grösser als \texttt{y} ist\textsuperscript{2}\\ 
+	\texttt{>=} &wahr, wenn \texttt{x} grösser oder gleich \texttt{y} ist\textsuperscript{2}\\ 
+	\hline 
+\end{tabular}\\
+\textsuperscript{2}Nicht definiert für den Datentyp \texttt{complex}\\
+
+\subsubsection{Bitweise Operatoren für den Datentypen \texttt{int}}
+\begin{tabular}{|c|l|}
+	\hline 
+	\textbf{Operator} &\textbf{Beschreibung}\\ 
+	\hline 
+	\texttt{x \& y} &bitweises UND von \texttt{x} und \texttt{y}\\ 
+	\texttt{x | y} &bitweises ODER von \texttt{x} und \texttt{y}\\
+	\texttt{x \textasciicircum y} &bitweises EXOR von \texttt{x} und \texttt{y}\\ 
+	\texttt{~x} &bitweises Komplement von \texttt{x}\\ 
+	\texttt{x << n} &Bit-Verschiebung um \texttt{n} Stellen nach links\\ 
+	\texttt{x >> n} &Bit-Verschiebung um \texttt{n} Stellen nach rechts\\ 
+	\hline 
+\end{tabular}
+
+\subsubsection{Methoden nur dür den Datentyp \texttt{complex}}
+\begin{tabular}{|l|l|}
+	\hline 
+	\textbf{Methode} &\textbf{Beschreibung}\\ 
+	\hline 
+	\texttt{x.real} &Realteil von \texttt{x} als Gleitkommazahl\\
+	\texttt{x.imag} &Imaginärteil von \texttt{x} als Gleitkommazahl\\ 
+	\texttt{x.conjugate()} &Liefert die zu \texttt{x} konjugiert komplexe Zahl\\  
+	\hline 
+\end{tabular}
+
+\subsection{Sequentielle Datentypen}
+\begin{itemize}
+	\item \texttt{str}
+	\item \texttt{list}
+	\item \texttt{tuple}
+	\item \texttt{bytes}
+	\item \texttt{bytearray}
+\end{itemize}
+Die folgenden Operatoren sind für \textbf{alle} sequentiellen Datentypen definiert:\\
+\begin{tabular}{|l|l|}
+	\hline 
+	\textbf{Operator} &\textbf{Beschreibung}\\ 
+	\hline 
+	\texttt{x in s} &Prüft, ob \texttt{x} in \texttt{s} enthalten ist.\\ 
+	\texttt{x not in s} &Prüft, ob \texttt{x} nicht in \texttt{s} enthalten ist.\\
+	\texttt{s + t} &Verkettung der beiden Sequenzen \texttt{s} und \texttt{t}.\\ 
+	\texttt{s * n} &Verkettung von \texttt{n} Kopien der Sequenz \texttt{s}.\\ 
+	\texttt{s[i]} &Liefert das \texttt{i}-te Element von s.\\ 
+	\texttt{s[i:j]} &Liefert den Ausschnitt aus \texttt{s} von \texttt{i} bis \texttt{j}.\\
+	\texttt{s[i:j:k]} &Liefert jedes \texttt{k}-te Element im Ausschnitt von \texttt{s} zwischen \texttt{i} und \texttt{j}.\\
+	\texttt{len(s)} &Liefert die Anzahl Elemente in der Sequenz \texttt{s}.\\
+	\texttt{max(s)} &Liefert das grösste Element in \texttt{s} (sofern eine Ordnung definiert ist).\\
+	\texttt{min(s)} &Liefert das kleinste Element in \texttt{s} (sofern eine Ordnung definiert ist).\\
+	\texttt{s.index(x)} &Liefert den Index des ersten Vorkommens von \texttt{x} in \texttt{s}.\\
+	\texttt{s.count(x)} &Zählt, wie oft \texttt{x} in \texttt{s} vorkommt.\\
+	\hline 
+\end{tabular}
+
+\subsection{Assoziative Datentypen}
+\begin{itemize}
+	\item dict
+\end{itemize}
+\begin{tabular}{|l|l|}
+	\hline 
+	\textbf{Operator} &\textbf{Beschreibung}\\ 
+	\hline 
+	\texttt{len(d)} &Liefert die Anzahl Schlüssel-Wert-Paare in \texttt{d}\\
+	\texttt{d[k]} &Zugriff auf den Wert mit dem Schlüssel \texttt{k}\\
+	\texttt{k in d} &Liefert \texttt{True}, wenn der Schlüssel \texttt{k} in \texttt{d} ist.\\
+	\texttt{k not in d} &Liefert \texttt{True}, wenn der Schlüssel \texttt{k} nicht in \texttt{d} ist.\\
+	\hline 
+\end{tabular}\\
+\begin{tabular}{|l|l|}
+	\hline 
+	\textbf{Operator} &\textbf{Beschreibung}\\ 
+	\hline 
+	\texttt{d.clear()} &Löscht alle Elemente aus dem Dictionary.\\
+	\texttt{d.copy()} &Erstellt eine Kopie des Dictionaries.\\
+	\texttt{d.get([k,[x]])} &Gibt den Wert des Schlüssels \texttt{k} zurück, ansonsten den Wert [x].\\
+	\texttt{d.items()} &Gibt eine Liste der Schlüssel-Wert-Paare als Tuple zurück.\\
+	\texttt{d.keys()} &Gibt eine Liste aller Schlüsselwerte zurück.\\
+	\texttt{d.update(d2)} &Fügt ein Dictionary \texttt{d2} zu \texttt{d} hinzu.\\
+	\texttt{d.pop(k)} &Entfernt das Element mit Schlüssel \texttt{k}.\\
+	\texttt{d.popitem()} &Entfernt das zuletzt eingefügte Schlüssel-Wert-Paar.\\
+	\texttt{d.setdefault(k,[x])} &Setzt den Wert [x] für den Schlüssel \texttt{k}.\\
+	\hline 
+\end{tabular}
+
+\subsection{Mengen}
+\begin{itemize}
+	\item set
+	\item frozenset
+\end{itemize}
