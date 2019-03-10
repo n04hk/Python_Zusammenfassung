@@ -1,0 +1,136 @@
+\part{Lektion 3: Exceptions, Dateien und Strings}
+\section{Exceptions}
+\begin{itemize}
+	\item Fehler (\url{https://docs.python.org/3/tutorial/errors.html}) können auftreten, z.B.:
+	\lstinputlisting{listings/v3_exception1.py}
+	\item und führen zu einem Abbruch des Programms
+	\item Fehler können abgefangen werden:
+	\lstinputlisting{listings/v3_exception2.py}
+\end{itemize}
+
+\subsection{Unspezifische Exceptions abfangen}
+Nicht empfohlen, da auch Exceptions geschluckt werden, die weitergegeben werden sollten, z.B. KeyboardInterrupt.\\
+\lstinputlisting{listings/v3_exception3.py}
+
+\subsection{Abfangen mehrerer Exceptions}
+\lstinputlisting{listings/v3_exception4.py}
+mehrfache Ausnahmen gruppieren:\\
+\lstinputlisting{listings/v3_exception5.py}
+
+\subsection{else-Teil}
+\lstinputlisting{listings/v3_exception6.py}
+
+\subsection{finally-Teil}
+\lstinputlisting{listings/v3_exception7.py}
+
+\subsection{Exceptions generieren}
+\lstinputlisting{listings/v3_exception8.py}
+
+\section{Dateien}
+
+\subsection{Datei öffnen}
+\begin{itemize}
+	\item Datei mit der \texttt{open()}-Funktion öffnen:
+	\lstinputlisting{listings/v3_datei1.py}
+	\item Weitere Parameter findet man in der Hilfe (\url{https://docs.python.org/3/library/functions.html#open}):
+	\lstinputlisting{listings/v3_datei2.py}
+\end{itemize}
+
+\subsection{Dateien lesen und schreiben}
+\begin{itemize}
+	\item Datei lesen:
+	\lstinputlisting{listings/v3_datei3.py}
+	\item Datei schreiben:
+	\lstinputlisting{listings/v3_datei4.py}
+	\item Datei schliessen:
+	\lstinputlisting{listings/v3_datei5.py}
+\end{itemize}
+
+\subsubsection{Datei lesen}
+\begin{itemize}
+	\item mit \texttt{read()}
+	\lstinputlisting{listings/v3_datei6.py}
+	\item besser mit der \texttt{with}-Anweisung
+	\lstinputlisting{listings/v3_datei7.py}
+	\item Variante mit \texttt{readlines()}
+	\lstinputlisting{listings/v3_datei8.py}
+\end{itemize}
+
+\subsubsection{Datei schreiben}
+\lstinputlisting{listings/v3_datei9.py}
+
+\subsubsection{glob}
+\lstinputlisting{listings/v3_datei10.py}
+
+\subsubsection{os.path}
+\lstinputlisting{listings/v3_datei11.py}
+
+\section{Strings}
+
+\subsection{Stringformatierung}
+\begin{itemize}
+	\item Stringformatierung benötigt man um Daten hübsch auszugeben
+	\lstinputlisting{listings/v3_strings1.py}
+	\item oder systematisch abzuspeichern
+	\lstinputlisting{listings/v3_strings2.py}
+\end{itemize}
+
+\subsubsection{im C-Stil (à la printf)}
+\lstinputlisting{listings/v3_strings3.py}
+
+\subsubsection{mit \texttt{format()}}
+\begin{itemize}
+	\lstinputlisting{listings/v3_strings4.py}
+	\item mit Index:
+	\lstinputlisting{listings/v3_strings5.py}
+	\item mit Index und Format:
+	\lstinputlisting{listings/v3_strings6.py}
+	\item links-/rechtsbündig oder zentriert:
+	\lstinputlisting{listings/v3_strings7.py}
+	\item mit Schlüsselwortparameter:
+	\lstinputlisting{listings/v3_strings8.py}
+	\item mit Dictionary:
+	\lstinputlisting{listings/v3_strings9.py}
+\end{itemize}
+
+\subsubsection{mit Stringliterale}
+\lstinputlisting{listings/v3_strings10.py}
+
+\subsubsection{mit \texttt{string}-Methoden}
+\lstinputlisting{listings/v3_strings11.py}
+
+\subsection{Alles über Strings}
+\begin{itemize}
+	\item Unicode-Nummer => Zeichen
+	\lstinputlisting{listings/v3_strings12.py}
+	\item Zeichen => Unicode-Nummer
+	\lstinputlisting{listings/v3_strings13.py}
+	\item String => bytes
+	\lstinputlisting{listings/v3_strings14.py}
+\end{itemize}
+
+\subsubsection{Strings aufspalten}
+\begin{itemize}
+	\item \texttt{split()}
+	\lstinputlisting{listings/v3_strings15.py}
+	\item \texttt{splitlines()}
+	\lstinputlisting{listings/v3_strings16.py}
+\end{itemize}
+
+\subsubsection{Strings kombinieren}
+\lstinputlisting{listings/v3_strings17.py}
+
+\subsubsection{Suchen von Teilstrings}
+\lstinputlisting{listings/v3_strings18.py}
+
+\subsubsection{Ersetzen von Teilstrings}
+\lstinputlisting{listings/v3_strings19.py}
+
+\subsubsection{Strings bereinigen}
+\lstinputlisting{listings/v3_strings20.py}
+
+\subsubsection{Klein- und Grossbuchstaben}
+\lstinputlisting{listings/v3_strings21.py}
+
+\subsubsection{Strings testen}
+\lstinputlisting{listings/v3_strings22.py}

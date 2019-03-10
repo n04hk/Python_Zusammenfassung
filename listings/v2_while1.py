@@ -1,0 +1,2 @@
+while Bedingung:
+    Anweisung1

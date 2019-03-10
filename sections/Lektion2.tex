@@ -1,0 +1,148 @@
+\part{Lektion 2: Verzweigungen, Schleifen und Funktionen}
+\section{Verzweigungen}
+\subsection{\texttt{if}}
+\lstinputlisting{listings/v2_if1.py}
+Anweisungen 1 \& 2 nur ausführen, wenn die Bedingung \textbf{wahr} ist.\\
+\begin{achtung}
+	Alle Anweisungen im gleichen Codeblock müssen gleich eingerückt sein, z.B. mit vier Leerzeichen, sonst wird ein Fehler ausgegeben.<
+\end{achtung}
+
+\subsubsection{\texttt{if}-Anweisung mit \texttt{else}-Zweig}
+\lstinputlisting{listings/v2_if2.py}
+\begin{itemize}
+	\item Anweisungen 1 \& 2, falls Bedingung \textbf{wahr}
+	\item Anweisungen 3 \& 4, falls Bedingung \textbf{unwahr}
+\end{itemize}
+Für jeden Datentyp gibt es einen Wert, der als \textbf{unwahr} gilt:\\
+\begin{tabular}{|l|l|}
+	\hline 
+	\textbf{Datentyp} &\textbf{False-Wert}\\  
+	\texttt{NoneType} &\texttt{None}\\ 
+	\texttt{int} &\texttt{0}\\  
+	\texttt{float} &\texttt{0.0}\\ 
+	\texttt{bool} &\texttt{False}\\  
+	\texttt{complex} &\texttt{0 + 0j}\\ 
+	\texttt{str} &\texttt{"}\\  
+	\texttt{list} &\texttt{[]}\\ 
+	\texttt{tuple} &\texttt{()}\\ 
+	\texttt{bytes} &\texttt{b"}\\ 
+	\texttt{bytearray} &\texttt{bytearray(b")}\\ 
+	\texttt{dict} &\texttt{{}}\\ 
+	\texttt{set} &\texttt{set()}\\ 
+	\texttt{frozenset} &\texttt{frozenset()}\\ 
+	\hline 
+\end{tabular}
+
+\subsubsection{\texttt{elif}-Zweige}
+\lstinputlisting{listings/v2_if3.py}
+\texttt{elif} = \texttt{else if}\\
+
+\begin{achtung}
+	Python kennt keine \texttt{switch}-\texttt{case}-Anweisung.
+\end{achtung}
+
+\section{Schleifen}
+\subsection{\texttt{while}}
+\lstinputlisting{listings/v2_while1.py}
+\begin{itemize}
+	\item Anweisung1 wird wiederholt, solange die Bedingung \textbf{wahr} ist
+	\item Einrücken des Codeblocks
+\end{itemize}
+
+\subsubsection{Durchlauf beenden und zurück nach oben}
+\begin{achtung}
+	Python kennt keine \texttt{do}-\texttt{while}-Schleife.
+\end{achtung}
+
+\lstinputlisting{listings/v2_while2.py}
+\texttt{continue} beendet den aktuellen Durchlauf und springt nach oben.
+
+\subsubsection{\texttt{while}-Schleife abbrechen}
+\lstinputlisting{listings/v2_while3.py}
+\texttt{break} bricht die \texttt{while}-Schleife vorzeitig ab
+
+\subsubsection{\texttt{else}-Teil}
+\lstinputlisting{listings/v2_while4.py}
+\texttt{else}-Teil: wenn die Schleife \textbf{nicht} durch \texttt{break} abgebrochen wurde
+
+\subsection{\texttt{for}}
+\lstinputlisting{listings/v2_for1.py}
+\begin{itemize}
+	\item dient zur Iteration einer Sequenz
+	\item Sequenz muss ein iterierbares Objekt sein:\\
+	\texttt{list}, \texttt{tuple}, \texttt{dict}, \texttt{str}, \texttt{bytes}, \texttt{bytearray}, \texttt{set}, \texttt{frozenset}
+\end{itemize}
+
+\subsubsection{\texttt{else}-Teil}
+\lstinputlisting{listings/v2_for2.py}
+\texttt{else}-Teil wie bei der \texttt{while}-Schleife
+
+\section{Funktionen}
+Python besitzt eine grosse Standard-Bibliothek, z.B.:
+\lstinputlisting{listings/v2_func1.py}
+\url{https://docs.python.org/3/library/}\\
+
+und eingebaute Datentypen:\\
+\url{https://docs.python.org/3/library/stdtypes.html}\\
+
+und eingebaute Funktionen:\\
+\url{https://docs.python.org/3/library/functions.html}
+
+\subsection{Funktionsdefinition}
+einfache Funktionsdefinition:\\
+\lstinputlisting{listings/v2_func2.py}
+
+Beispiel:\\
+\lstinputlisting{listings/v2_func3.py}
+
+\begin{itemize}
+	\item Der Funktionsname kann frei gewählt werden
+	\item Parameternamen durch Kommas trennen
+	\item Codeblock gleichmässig einrücken
+\end{itemize}
+
+Der Rückgabewert der Funktion ist \texttt{None}, falls nichts angegeben wird.\\
+\lstinputlisting{listings/v2_func4.py}
+
+\texttt{return}-Anweisung beendet den Funktionsaufruf mit Rückgabewert:\\
+\lstinputlisting{listings/v2_func5.py}
+\begin{itemize}
+	\item leere \texttt{return}-Anweisung liefert \texttt{None} zurück
+	\item mehrere \texttt{return}-Anweisungen sind erlaubt, wie in C/C++
+\end{itemize}
+
+\subsection{Aufruf}
+\lstinputlisting{listings/v2_func6.py}
+
+\subsection{Weiteres}
+
+\subsubsection{Standardwert für Parameter}
+\lstinputlisting{listings/v2_func7.py}
+
+\subsubsection{Mehrere Rückgabewerte}
+\lstinputlisting{listings/v2_func8.py}
+
+\subsubsection{Variable Anzahl von Argumenten}
+\lstinputlisting{listings/v2_func9.py}
+
+\subsubsection{Argumente entpacken}
+\lstinputlisting{listings/v2_func10.py}
+
+\subsubsection{Beliebige Schlüsselwort-Parameter}
+\lstinputlisting{listings/v2_func11.py}
+
+\subsubsection{Schlüsselwortparameter entpacken}
+\lstinputlisting{listings/v2_func12.py}
+
+\subsubsection{Globale Variablen}
+\lstinputlisting{listings/v2_func13.py}
+
+\subsubsection{Docstring - Funktion dokumentieren}
+PEP 257 - Docstring Conventions \url{https://www.python.org/dev/peps/pep-0257}
+\lstinputlisting{listings/v2_func14.py}
+
+\subsubsection{Call-by-object-reference}
+mit veränderlichen Objekten:
+\lstinputlisting{listings/v2_func15.py}
+mit unveränderlichen Objekten:
+\lstinputlisting{listings/v2_func16.py}

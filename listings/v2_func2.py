@@ -1,0 +1,2 @@
+def Funktionsname(Parameterliste):
+    Anweisungen
