@@ -22,14 +22,14 @@
 	\texttt{complex} &Komplexe Zahlen &\texttt{0 + 0j}\\ 
 	\hline 
 	\textbf{Sequenzielle Datentypen}&&\\
-	\texttt{str} &Zeichenketten oder Strings &\texttt{"}\\
+	\texttt{str} &Zeichenketten oder Strings &\texttt{''}\\
 	\texttt{list} &Listen (veränderlich) &\texttt{[]}\\
 	\texttt{tuple} &Tupel (unveränderlich) &\texttt{()}\\
-	\texttt{bytes} &Sequenz von Bytes (unveränderlich) &\texttt{b"}\\
-	\texttt{bytearray} &Sequenz von Bytes (veränderlich) &\texttt{bytearray(b")}\\
+	\texttt{bytes} &Sequenz von Bytes (unveränderlich) &\texttt{b''}\\
+	\texttt{bytearray} &Sequenz von Bytes (veränderlich) &\texttt{bytearray(b'')}\\
 	\hline
 	\textbf{Assoziative Datentypen}&&\\
-	\texttt{dict} &Dictionary (Schlüssel-Wert-Paare) &\texttt{{}}\\
+	\texttt{dict} &Dictionary (Schlüssel-Wert-Paare) &\texttt{\{\}}\\
 	\hline
 	\textbf{Mengen}&&\\
 	\texttt{set} &Menge mit einmalig vorkommenden Objekten &\texttt{set()}\\
@@ -48,7 +48,7 @@
 	\item Python kennt keine implizite Typumwandlung
 \end{itemize}
 
-\subsection{Numerische Datentypen}
+\subsection[Numerische Datentypen]{Numerische Datentypen \tiny{Kap. 4}}
 \begin{itemize}
 	\item \texttt{bool}
 	\item \texttt{int}
@@ -74,7 +74,7 @@
 \end{tabular}\\
 \textsuperscript{1}Nicht definiert für den Datentyp \texttt{complex}\\
 \begin{achtung}
-	\texttt{x++} und \texttt{x--} gibt es \textbf{nicht}, aber \texttt{x += 1, x -0 1, x *= 2, ...}
+	\texttt{x++} und \texttt{x--} gibt es \textbf{nicht}, aber \texttt{x += 1, x -= 1, x *= 2, ...}
 \end{achtung}
 
 \subsubsection{Vergleichende Operatoren}
@@ -100,7 +100,7 @@
 	\texttt{x \& y} &bitweises UND von \texttt{x} und \texttt{y}\\ 
 	\texttt{x | y} &bitweises ODER von \texttt{x} und \texttt{y}\\
 	\texttt{x \textasciicircum y} &bitweises EXOR von \texttt{x} und \texttt{y}\\ 
-	\texttt{~x} &bitweises Komplement von \texttt{x}\\ 
+	\texttt{\textasciitilde x} &bitweises Komplement von \texttt{x}\\ 
 	\texttt{x << n} &Bit-Verschiebung um \texttt{n} Stellen nach links\\ 
 	\texttt{x >> n} &Bit-Verschiebung um \texttt{n} Stellen nach rechts\\ 
 	\hline 
@@ -117,7 +117,7 @@
 	\hline 
 \end{tabular}
 
-\subsection{Sequentielle Datentypen}
+\subsection[Sequentielle Datentypen]{Sequentielle Datentypen \tiny{Kap. 5}}
 \begin{itemize}
 	\item \texttt{str}
 	\item \texttt{list}
@@ -145,7 +145,7 @@ Die folgenden Operatoren sind für \textbf{alle} sequentiellen Datentypen defini
 	\hline 
 \end{tabular}
 
-\subsection{Assoziative Datentypen}
+\subsection[Assoziative Datentypen]{Assoziative Datentypen \tiny{Kap. 6}}
 \begin{itemize}
 	\item dict
 \end{itemize}
@@ -175,8 +175,27 @@ Die folgenden Operatoren sind für \textbf{alle} sequentiellen Datentypen defini
 	\hline 
 \end{tabular}
 
-\subsection{Mengen}
+\subsection[Mengen]{Mengen \tiny{Kap. 7}}
 \begin{itemize}
 	\item set
 	\item frozenset
 \end{itemize}
+
+Ein set enthält eine ungeordnete Sammlung von einmaligen und unveränderlichen Elementen. In anderen Worten: Ein Element kann in einem set-Objekt nicht mehrmals vorkommen, was bei Listen und Tupel jedoch möglich ist.
+
+\begin{tabular}{|l|l|}
+	\hline 
+	\textbf{Operator} &\textbf{Beschreibung}\\ 
+	\hline 
+	\texttt{s.add(el)} &Fügt ein neues unveränderliches Element (el) ein\\
+	\texttt{s.clear()} &Löscht alle Elemente einer Menge.\\
+	\texttt{s.copy()} &Erstellt eine Kopie der Menge.\\
+	\texttt{s.difference(y)} &Die Menge s wird von y subtrahiert und in einer neuen Menge gespeichert.\\
+	\texttt{s.difference\_update(y)} &Gleich wie s.difference(y) nur wird hier das Ergebnis direkt in s gespeichert.\\
+	\texttt{s.discard(el)} &Das Element el wird aus der Menge s entfernt.\\
+	\texttt{s.remove(el)} &Gleich wie s.discard(el) nur gibt es hier einen Fehler falls el nicht in s.\\
+	\texttt{s.intersection(y)} &Liefert die Schnittmenge s und y.\\
+	\texttt{s.isdisjoint(y)} &Liefert True falls Schnittmenge von s und y leer ist.\\
+	\texttt{s.pop()} &Liefert ein beliebiges Element welches zugleich aus der Menge entfernt wird\\
+	\hline 
+\end{tabular}

@@ -14,7 +14,8 @@ print('global:', modul) # Ausgabe: global: Python
 
 def wirklich_wechseln():
     global modul    #referenzieren auf die globale Variable
+    modul = 'C++'
     print('lokal:', modul)
 
-wechseln()  # Ausgabe: lokal: C++
-print(global:), modul   # Ausgabe: global: C++
+wirklich_wechseln()  # Ausgabe: lokal: C++
+print('global:', modul)   # Ausgabe: global: C++
