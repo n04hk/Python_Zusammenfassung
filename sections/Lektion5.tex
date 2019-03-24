@@ -1,0 +1,240 @@
+\part*{Lektion 5: Reguläre Ausdrücke}
+\begin{itemize}
+	\item Regular Expressions (RE, regex, regex pattern)
+	\item Bilden eine kleine Programmiersprache innerhalb von Python
+	\item Sind verfügbar im \texttt{re}-Modul (\url{https://docs.python.org/3/library/re.html}) - \texttt{import re}
+	\item Definieren Muster, auf die nur gewisse Strings passen, z.B.:
+	\begin{itemize}
+		\item Entspricht die angegebene E-Mail-Adresse dem Muster?
+		\item Welche Wörter im Text beginnen mit $"$ver-$"$ und enden mit $"$-en$"$?
+	\end{itemize}
+	\item Die meisten Buchstaben und Zeichen passen auf sich selbst:
+	\begin{itemize}
+		\item \texttt{test} passt genau auf sich selbst
+	\end{itemize}
+	\item Folgende Metazeichen haben eine spezielle Bedeutung:
+	\begin{itemize}
+		\item[\-] . $\textasciicircum$ $\textdollar$ * + ? \{ \} [ ] $\textbackslash$ | ()
+		\item[\-] . passt auf alle Zeichen, ausser Newline-Zeichen
+	\end{itemize}
+\end{itemize}
+
+\section{Zeichen-Klassen}
+\begin{itemize}
+	\item Die Metazeichen [ und ] definieren eine Zeichen-Klasse
+	\begin{description}
+		\item[abc] passt auf alle Zeichen a, b oder c
+		\item[a-z] passt auf einen Kleinbuchstaben
+		\item[a-zA-Z] passt auf einen Klein- oder Grossbuchstaben
+	\end{description}
+	\item Andere Metazeichen sind in Zeichen-Klasse nicht aktiv:
+	\begin{description}
+		\item[akm$\textdollar$] passt auf die Zeichen a, k, m oder \textdollar, wobei $\textdollar$ sonst ein Metazeichen ist. 
+	\end{description}
+	\item Das $\textasciicircum$-Zeichen definiert die komplementäre Menge:
+	\begin{description}
+		\item[$\textasciicircum$abc] passt auf alle Zeichen, ausser a, b und c
+	\end{description}
+	\item Vordefinierte Zeichen-Klassen:\\
+	\begin{tabular}{lll}
+		$\textbackslash$d& Dezimalziffer& [0-9]\\ 
+		$\textbackslash$D& keine Dezimalziffer& [$\textasciicircum$0-9]\\ 
+		$\textbackslash$s& Leer- oder Steuerzeichen& [$\textbackslash$t$\textbackslash$n$\textbackslash$r$\textbackslash$f$\textbackslash$v]\\ 
+		$\textbackslash$S& kein Leer- oder Steuerzeichen& [$\textasciicircum$$\textbackslash$t$\textbackslash$n$\textbackslash$r$\textbackslash$f$\textbackslash$v]\\ 
+		$\textbackslash$w& Unicode-Wortzeichen (auch Umlaute)& [a-zA-Z0-9\_]\\ 
+		$\textbackslash$W& kein Wortzeichen& [$\textasciicircum$a-zA-Z0-9\_]\\ 
+	\end{tabular}
+	\item Verwendung in Zeichen-Klassen:\\
+	\begin{tabular}{ll}
+		[A-Fa-f$\textbackslash$d]& passt auf eine Hexadezimalziffer\\
+		$[\textbackslash s,.]$& passt auf ein Leerzeichen, Komma oder Punkt\\
+	\end{tabular}
+\end{itemize}
+
+\section{Wiederholungen (Quantoren)}
+\begin{itemize}
+	\item 0 oder mehrmals\\
+	\begin{tabular}{ll}
+		*& ca*t passt auf ct, cat, caat, ...\\
+		& a[0-9]*b passt auf ab, a538b, a0b, ...\\
+	\end{tabular}
+	\item 1 oder mehrmals\\
+	\begin{tabular}{ll}
+		+& ca+t passt nicht auf ct, aber cat, caat, ...\\
+	\end{tabular}
+	\item 0 oder 1-mal\\
+	\begin{tabular}{ll}
+		?& 10k?m passt auf 10m oder 10km\\
+	\end{tabular}
+	\item m bis n-mal\\
+	\begin{tabular}{ll}
+		\{m,n\}& ab{2,3}c passt auf abbc oder abbbc\\
+		& \{3\} $\rightarrow$ genau 3-mal\\
+		& \{3,\} $\rightarrow$ mindestens 3-mal\\
+	\end{tabular}
+	\item Gierigkeit deaktivieren\\
+	\begin{tabular}{ll}
+		?& macht die obigen Wiederholungen nicht-gierig, z.B. <.+?>
+	\end{tabular}
+\end{itemize}
+
+\section{Übereinstimmungen}
+\begin{itemize}
+	\item Funktionen, die Übereinstimmungen liefern:\\
+	\begin{tabular}{ll}
+		\texttt{re.match()}& Prüft, ob die RA am Stringanfang passt.\\
+		& Gibt entweder \texttt{None} oder eine \texttt{match}-Objekt zurück.\\
+		\texttt{re.search()}& Sucht erstes Auftreten vom RA im String.\\
+		& Gibt entweder \texttt{None} oder ein \texttt{match}-Objekt zurück.\\
+		\texttt{re.findall()}& Findet alle Teilstrings, die mit dem RA passen.\\
+		& Gibt eine Liste mit allen Teilstrings zurück.\\
+		\texttt{re.finditer()}& Findet alle Teilstrings, die mit dem RA passen.\\
+		& Gibt einen Iterator zurück, der \texttt{match}-Objekte liefert.\\
+	\end{tabular}
+\end{itemize}
+	
+\subsection{\texttt{match}-Objekt}
+\begin{itemize}
+	\item Memberfunktionen eines \texttt{match}-Objekts:\\
+	\begin{tabular}{ll}
+		\texttt{group()}& Gibt den Teilstring zurück, der mit dem RA passt.\\
+		\texttt{start()}& Gibt die Startposition des Teilstrings zurück.\\
+		\texttt{end()}& Gibt die Endpostion des Teilstrings zurück.\\
+		\texttt{span()}& Gibt ein Tupel mit (\texttt{start, end}) zurück
+	\end{tabular}
+\end{itemize}
+
+\subsection{Übereinstimmungen finden}
+\texttt{re}-Modul importieren:
+\lstinputlisting{listings/v5_ra1.py}
+\texttt{re.match(pattern, string, flags=0)}
+\lstinputlisting{listings/v5_ra2.py}
+\texttt{re.search(pattern, string, flags=0)}
+\lstinputlisting{listings/v5_ra3.py}
+\texttt{re.findall(pattern, string, flags=0)}
+\lstinputlisting{listings/v5_ra4.py}
+\texttt{re.finditer(pattern, string, flags=0)}
+\lstinputlisting{listings/v5_ra5.py}
+
+\section{Modifizierungen}
+\begin{itemize}
+	\item Funktionen, die Modifizierungen durchführen:\\
+	\begin{tabular}{ll}
+		\texttt{re.split()}& Trennt den String dort, wo der RA passt.\\
+		& Gibt eine Liste mit den Teilstrings zurück.\\
+		\texttt{re.sub()}& Ersetzt jeden Teilstring, der mit dem RA passt.\\
+		& Gibt den neuen String zurück.\\
+		\texttt{re.subn()}& Gleich wie bei \texttt{re.sub()},\\
+		& gibt aber einen Tupel (Neuer String, Anzahl) zurück.\\
+	\end{tabular}
+\end{itemize}
+\texttt{re}-Modul importieren:
+\lstinputlisting{listings/v5_ra1.py}
+\texttt{re.split(pattern, string, maxsplit=0, flags=0)}\\
+Der String wird überall dort getrennt, wo ein Teilstring auf den RA passt, z.B.: zwischen den Wörtern.
+\lstinputlisting{listings/v5_ra6.py}
+\texttt{re.sub(pattern, repl, string, count=0, flags=0)}\\
+Jeder Teilstring, der auf den RA passt, wird mit dem repl-String ersetzt:
+\lstinputlisting{listings/v5_ra7.py}
+Mit \texttt{count} kann die Anzahl Ersetzungen limitiert werden:
+\lstinputlisting{listings/v5_ra8.py}
+Eine Funktion bei \texttt{repl} angeben. Das Argument ist ein \texttt{match}-Objekt, der Rückgabewert muss ein String sein.
+\lstinputlisting{listings/v5_ra9.py}
+\texttt{re.subn(pattern, repl, string, count=0, flags=0)}\\
+Gleich wie bei \texttt{re.sub()}, aber es wird ein Tupel mit dem neuen String und die Anzahl der Ersetzungen zurückgegeben:
+\lstinputlisting{listings/v5_ra10.py}
+
+\section{Gruppierung}
+\begin{itemize}
+	\item Teile eines Ausdrucks können gruppiert werden
+	\item Normale Gruppierung mit \texttt{()}\\
+	\begin{tabular}{ll}
+		(ab)+c& passt auf abc, ababc, ...\\
+		(ab)\textbackslash1& mit Rückwärtsreferenz, passt auf abab\\
+	\end{tabular}
+	\item Benannte Gruppierung mi (?P<...>)\\
+	\begin{tabular}{ll}
+		(?P<zahl>\textbackslash d+)& passt auf 13\\
+		(?P<zahl>\textbackslash d+)-(?P=zahl)& mit Referenz, passt auf 13-13\\
+	\end{tabular}
+	\item Passive Gruppierung (non-capturing group) mit (?:...)\\
+	\begin{tabular}{ll}
+		(?:ab)& passt auf ab, Gruppe wird nicht hinterlegt\\
+	\end{tabular}
+\end{itemize}
+\texttt{re}-Modul importieren
+\lstinputlisting{listings/v5_ra1.py}
+\texttt{match-Objekt}\\
+Mittels der \texttt{groups()}-Memberfunktion eines \texttt{match}-Objektes erhält man ein Tupel mit den Übereinstimmungen der einzelnen Gruppen.\\
+Folgende Funktionen liefern ein \texttt{match}-Objekt: \texttt{re.match()}, \texttt{re.search()}, und \texttt{re.finditer()}.
+\lstinputlisting{listings/v5_ra11.py}
+Mit benannten Gruppen:
+\lstinputlisting{listings/v5_ra12.py}
+\texttt{re.findall()}\\
+Falls Gruppen im RA angegeben werden, dann werden nur die Übereinstimmungen der Gruppen als Liste von Tupeln zurückgegeben.
+\lstinputlisting{listings/v5_ra13.py}
+verschachtelte Gruppen, öffnende Klammern definieren die Reihenfolge
+\lstinputlisting{listings/v5_ra14.py}
+\texttt{re.split()}\\
+Falls Gruppen im RA angegeben werden, dann werden auch die Übereinstimmungen der Gruppen in der Liste zurückgegeben.
+\lstinputlisting{listings/v5_ra15.py}
+\texttt{re.sub()}\\
+\lstinputlisting{listings/v5_ra16.py}
+
+\subsection{Weitere Metazeichen}
+\begin{itemize}
+	\item Spezielle Prüfzeichen (belegen keinen Platz):\\
+	\begin{tabular}{ll}
+		$\textbar$& x|y passt entweder auf x oder y\\
+		$\textasciicircum$& steht für den Anfang des Strings\\
+		& oder für den Anfang jeder Zeile (bei flag=re.MULTILINE)\\
+		$\textdollar$& steht für das Ende des Strings\\
+		& oder für das Ende jeder Zeile (bei flag=re.MULTILINE)\\
+		$\textbackslash$A& steht für den Anfang des Strings\\
+		$\textbackslash$Z& steht für das Ende des Strings\\
+		$\textbackslash$b& steht für eine Wortgrenze\\
+		$\textbackslash$B& steht für das Gegenteil von $\textbackslash$b\\
+	\end{tabular}
+\end{itemize}
+\texttt{re}-Modul importieren
+\lstinputlisting{listings/v5_ra1.py}
+\texttt{Entweder...oder...}
+\lstinputlisting{listings/v5_ra17.py}
+\texttt{Anfang des Strings}
+\lstinputlisting{listings/v5_ra18.py}
+\texttt{Ende des Strings}
+\lstinputlisting{listings/v5_ra19.py}
+\texttt{Wortgrenze}
+\lstinputlisting{listings/v5_ra20.py}
+
+\subsection{Look-around Assertions}
+\begin{itemize}
+	\item positive, vorausschauende Annahme\\
+	\begin{tabular}{ll}
+		(?=Ausdruck)& Ausdruck muss hier folgen\\
+	\end{tabular}
+	\item negative, vorausschauende Annahme\\
+	\begin{tabular}{ll}
+		(?!Ausdruck)& Ausdruck darf hier nicht folgen\\
+	\end{tabular}
+	\item positive, nach hinten schauende Annahme\\
+	\begin{tabular}{ll}
+		(?<=Ausdruck)& Ausdruck muss hier vorangehen\\
+	\end{tabular}
+	\item negative, nach hinten schauende Annahme\\
+	\begin{tabular}{ll}
+		(?<=!Ausdruck)& Ausdruck darf hier nicht vorausgehen\\
+	\end{tabular}
+\end{itemize}
+\texttt{Positive, vorausschauende Annahme}\\
+Nach dem Wort muss ".doc" folgen:
+\lstinputlisting{listings/v5_ra21.py}
+\texttt{Negative, vorausschauende Annahme}\\
+Nach den Buchstaben dürfen nicht Ziffern folgen:
+\lstinputlisting{listings/v5_ra22.py}
+\texttt{Positive, nach hinten schauende Annahme}\\
+Vor den Ziffern muss ein \#-Zeichen vorausgehen:
+\lstinputlisting{listings/v5_ra23.py}
+\texttt{Negative, nach hinten schauende Annahme}\\
+Vor den Ziffern darf kein \#-Zeichen vorausgehen:
+\lstinputlisting{listings/v5_ra24.py}
