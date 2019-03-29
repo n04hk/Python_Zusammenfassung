@@ -1,0 +1,176 @@
+\part*{Lektion 6: Klassen}
+\section{Klassen}
+\begin{itemize}
+	\item Die Klassendefinition beginnt mit dem Schlüsselwort \texttt{class}
+\end{itemize}
+\lstinputlisting{listings/v6_klassen1.py}
+\begin{itemize}
+	\item Eine Klasse mit Variablen und Methoden:
+\end{itemize}
+\lstinputlisting{listings/v6_klassen2.py}
+
+\subsection{Einfache Klasse definieren}
+\lstinputlisting{listings/v6_klassen3.py}
+
+\subsection{Klasse instanzieren}
+\lstinputlisting{listings/v6_klassen4.py}
+
+\subsection{Klassen- und Instanz-Variablen}
+\lstinputlisting{listings/v6_klassen5.py}
+Die Daten einer \textbf{Klassen-Variable} sind für alle Klassen-Objekte gleich.
+\lstinputlisting{listings/v6_klassen6.py}
+Die Daten einer \textbf{Instanz-Variable} sind für jedes Klassen-Objekt individuell.
+\lstinputlisting{listings/v6_klassen7.py}
+\textbf{Achtung:} bei gleichem Name haben die Instanz-Variablen Vorrang.
+\lstinputlisting{listings/v6_klassen8.py}
+
+\subsection{Methoden}
+\lstinputlisting{listings/v6_klassen9.py}
+Unterschiede zwischen Methoden und einer gewöhnlichen Funktion:
+\begin{itemize}
+	\item eine Methode wird innerhalb eines \textbf{\texttt{class}}-Blocks definiert.
+	\item der erste Parameter (\textbf{\texttt{self}}) einer Methode ist immer eine Referenz auf die Instanz, von der sie aufgerufen wird.
+\end{itemize}
+\textbf{Hinweise:}
+\begin{itemize}
+	\item Eine Variable, die mit $"$\texttt{self.}$"$ innerhalb einer Methode erstellt wird, ist automatisch eine Instanz-Variable.
+	\item Eine Variable, z.B. \texttt{speed\_of\_light}, die ausserhalb einer Methode erstellt wird, ist automatisch eine Klassen-Variable.
+\end{itemize}
+
+\subsubsection{\texttt{\_\_init\_\_()}-Methode}
+Sie dient zur Initialisierung der Instanz. Sie wird unmittelbar nach dem Konstruktor aufgerufen.
+\lstinputlisting{listings/v6_klassen10.py}
+\textbf{Dringend empfohlen:} alle Instanz-Variablen in der \texttt{\_\_init\_\_()}-Methode initialisieren.
+
+\subsubsection{\texttt{\_\_del\_\_()}-Methode}
+Sie wird aufgerufen, bevor die Instanz zerstört wird.
+\lstinputlisting{listings/v6_klassen11.py}
+\textbf{Hinweis:} Das Objekt selber wird vom Garbage Collector entfernt, sobald keine Referenzen mehr darauf zeigen.
+
+\subsubsection{Methoden aufrufen}
+Der \textbf{\texttt{self}}-Parameter wird beim Aufruf nicht angegeben.
+\lstinputlisting{listings/v6_klassen12.py}
+Python bindet alle Methoden automatisch an die Instanz.
+\lstinputlisting{listings/v6_klassen13.py}
+Grundsätzlich entspricht dies dem folgenden Aufruf:
+\lstinputlisting{listings/v6_klassen14.py}
+
+\subsubsection{Statische Methoden}
+Sie sind nicht an eine Instanz gebunden, d.h. sie benötigen keinen \texttt{self}-Parameter.\\
+Variante 1:
+\lstinputlisting{listings/v6_klassen15.py}
+Variante 2 mit Dekorateur:
+\lstinputlisting{listings/v6_klassen16.py}
+
+\subsubsection{Klassen-Methoden}
+Sie sind an eine Klasse gebunden.
+Variante 1:
+\lstinputlisting{listings/v6_klassen17.py}
+
+\subsection{Datenabstraktion}
+\begin{itemize}
+	\item Datenabstraktion = Datenkapselung + Geheimnisprinzip
+	\item Datenkapselung (Zugriff kontrollieren)
+	\begin{itemize}
+		\item Setter- und Getter-Methoden
+		\item[\-] \texttt{set\_variable(value), get\_variable()}
+	\end{itemize}
+	\item Geheimnisprinzip (interne Information verstecken)
+	\begin{itemize}
+		\item \texttt{public}
+		\item \texttt{protected}
+		\item \texttt{private}
+	\end{itemize}
+\end{itemize}
+Der Zugang zu den Instanz-Attributen (Variablen und Methoden) sind in drei Stufen definiert: \textbf{\texttt{public}}, \textbf{\texttt{protected}} und \textbf{\texttt{private}}.\\
+\textbf{Hinweis:} Das ist alles nur eine Konvention. In Python gibt es keinen Datenschutz.
+\lstinputlisting{listings/v6_klassen18.py}
+
+\subsubsection{Public}
+Attribute ohne führende Unterstriche im Namen sind als \textbf{\texttt{public}} zu betrachten. Man kann und darf auch von ausserhalb der Klasse darauf zugreifen.
+\lstinputlisting{listings/v6_klassen19.py}
+
+\subsubsection{Protected}
+Attribute mit einem führenden Unterstrich im Namen sind als \textbf{\texttt{protected}} zu betrachten, d.h. man könnte theoretisch von aussen darauf zugreifen, man sollte aber nicht, es ist unerwünscht. Sie werden v.a. bei Vererbungen wichtig.
+\lstinputlisting{listings/v6_klassen20.py}
+
+\subsubsection{Private}
+Attribute mit zwei führenden Unterstrichen im Namen sind \textbf{\texttt{private}}. Sie sind von aussen nicht sichtbar.
+\lstinputlisting{listings/v6_klassen21.py}
+Im Prinzip gibt es einen Umweg um dies zu umgehen. \textbf{Achtung:} höchst illegal!
+\lstinputlisting{listings/v6_klassen22.py}
+
+\subsubsection{Setter- und Getter-Methoden}
+Setter- und Getter-Methoden für private Instanz-Variablen auf phytonsche Art und Weise implementieren.\\
+\textbf{Konventionell:} Set- und Get-Methoden explizit benutzen.
+\lstinputlisting{listings/v6_klassen23.py}
+\textbf{Property:} Von aussen wie auf eine öffentliche Variable zugreifen, Set- und Get-Methoden werden implizit aufgerufen.\\
+\url{https://docs.python.org/3/library/functions.html#property}
+\lstinputlisting{listings/v6_klassen24.py}
+\textbf{Property mit Dekorateuren:} Auf pythonische Art und Weise.\\
+\url{https://docs.python.org/3/glossary.html#term-decorator}
+\lstinputlisting{listings/v6_klassen25.py}
+
+\subsection{Magische Methoden}
+\begin{itemize}
+	\item Besondere Fähigkeiten für Klassen\\ (\url{https://docs.python.org/3/reference/datamodel.html#special-method-names})
+	\item Grundfunktionen
+	\begin{itemize}
+		\item \texttt{\_\_init\_\_()}, \texttt{\_\_del\_\_()}, \texttt{\_\_str\_\_()}, ...
+	\end{itemize}
+	\item Operatoren überladen
+	\begin{itemize}
+		\item binäre Operatoren: + - / * \% ...
+		\item numerische Operatoren: \texttt{\_\_int\_\_()}, \texttt{\_\_float\_\_()}, \texttt{\_\_abs\_\_()}, ...
+		\item ...
+	\end{itemize}
+	\item Containertypen emulieren
+	\begin{itemize}
+		\item \texttt{\_\_len\_\_()}, \texttt{\_\_iter\_\_()}, \texttt{\_\_contains\_\_()}, ...
+	\end{itemize}
+	\item ...
+\end{itemize}
+Sie sind spezielle Methoden, um Klassen besondere Fähigkeiten zu geben. Es werden hier nur einige Beispiele gezeigt.
+
+\subsubsection{Grundmethoden}
+\url{https://docs.python.org/3/reference/datamodel.html#basic-customization}\\
+Zwei davon haben wir schon kennengelernt:
+\begin{itemize}
+	\item \texttt{\_\_init\_\_()}
+	\item \texttt{\_\_del\_\_()}
+\end{itemize}
+Der Rückgabewert von \texttt{\_\_str\_\_()} gibt an, was \texttt{str(obj)} zurückgeben soll, z.B.:
+\lstinputlisting{listings/v6_klassen26.py}
+
+\subsubsection{Numerische Datentypen emulieren}
+\url{https://docs.python.org/3/reference/datamodel.html#emulating-numeric-types}\\
+Der Rückgabewert von \texttt{\_\_float\_\_()} gibt an, was \texttt{float(obj)} zurückgeben soll.\\
+Mit der \texttt{\_\_add\_\_()}-Methode wird der + Operator überladen.\\
+Mit der \texttt{\_\_sub\_\_()}-Methode wird der - Operator überladen.
+\lstinputlisting{listings/v6_klassen27.py}
+
+\subsection{Klassen testen}
+\begin{itemize}
+	\item Klassen werden in separate Pythondateien gespeichert
+	\item Testcode in die gleiche Datei integrieren
+	\item Testcode in eine \texttt{if}-Anweisung platzieren:
+	\item[\-] \lstinputlisting{listings/v6_klassen28.py}
+\end{itemize}
+\lstinputlisting{listings/v6_my_module.py}
+\lstinputlisting{listings/scripts/my_other_module.py}
+
+\subsection{Eigenes Modul importieren}
+\begin{itemize}
+	\item Klasse aus einer separaten Pythondatei importieren
+	\begin{itemize}
+		\item aus dem gleichen Verzeichnis
+		\item aus einem anderen Verzeichnis
+	\end{itemize}
+\end{itemize}
+\url{https://docs.python.org/3/tutorial/modules.html}\\
+
+\subsubsection{Aus dem gleichen Verzeichnis}
+\lstinputlisting{listings/v6_klassen29.py}
+
+\subsubsection{Aus einem andere Verzeichnis}
+\lstinputlisting{listings/v6_klassen30.py}
