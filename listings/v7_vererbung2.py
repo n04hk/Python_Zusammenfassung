@@ -1,0 +1,2 @@
+class Angestellter(Person):
+    pass
