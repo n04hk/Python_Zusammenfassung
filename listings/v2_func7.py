@@ -1,5 +1,5 @@
 def rosen(farbe='rot'):
     print('Rosen sind ' + farbe + '.')
 
-rosen() # Aufruf 1
-rosen('gelb')   # Aufruf 2
+rosen()				# Ausgabe: 'Rosen sind rot.'
+rosen('gelb')	# Ausgabe: 'Rosen sind gelb.'

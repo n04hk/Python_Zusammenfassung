@@ -1,9 +1,9 @@
 \part*{Lektion 3: Exceptions, Dateien und Strings}
-\section{Exceptions}
+\section[Exceptions]{Exceptions \tiny{Kap. 20}}
 \begin{itemize}
 	\item Fehler (\url{https://docs.python.org/3/tutorial/errors.html}) können auftreten, z.B.:
 	\lstinputlisting{listings/v3_exception1.py}
-	\item und führen zu einem Abbruch des Programms
+	und führen zu einem Abbruch des Programms
 	\item Fehler können abgefangen werden:
 	\lstinputlisting{listings/v3_exception2.py}
 \end{itemize}
@@ -12,19 +12,30 @@
 Nicht empfohlen, da auch Exceptions geschluckt werden, die weitergegeben werden sollten, z.B. KeyboardInterrupt.\\
 \lstinputlisting{listings/v3_exception3.py}
 
-\subsection{Abfangen mehrerer Exceptions}
-\lstinputlisting{listings/v3_exception4.py}
-mehrfache Ausnahmen gruppieren:\\
-\lstinputlisting{listings/v3_exception5.py}
+\subsection{Master Beispiel}
+\lstinputlisting{listings/v3_exception9.py}
+\begin{tabular}{lll}
+	\textbf{Eingabe} & \textbf{File}  & \textbf{Ausgaben}\\
+	5 		& existiert & Alles Okey $ \quad $ Auf wiedersehen $ \quad $ Prog. laeuft noch\\
+	0 		& existiert & Eingabe darf nicht 0 sein! $ \quad $ Auf wiedersehen $ \quad $ Prog. laeuft noch\\
+	200		& existiert & Error: Wert ist zu Gross! $ \quad $ Auf wiedersehen $ \quad $ Prog. laeuft noch\\
+	'10.-' 	& existiert & Err: invalid literal for int() with base 10: '10.-' $ \quad $Auf wiedersehen $ \quad $ Prog. laeuft noch\\
+	$[$5, 1$]$ 	& existiert & Auf wiedersehen $ \quad $ Lange Fehlermeldung\\ 
+	5		& exist. nicht & Err: [Errno 2] No such file or directory: 'dat.txt' $ \quad $ Auf wiedersehen $ \quad $ Prog. laeuft noch
+\end{tabular}\\[10pt]
+'Auf wiedersehen' wird immer ausgegeben, 'Prog. laeuft noch' wird dann ausgegeben wenn kein Fehler auftrat oder dieser abgefangen wurde.
+%\lstinputlisting{listings/v3_exception4.py}
+%mehrfache Ausnahmen gruppieren:\\
+%\lstinputlisting{listings/v3_exception5.py}
 
-\subsection{else-Teil}
-\lstinputlisting{listings/v3_exception6.py}
+%\subsection{else-Teil}
+%\lstinputlisting{listings/v3_exception6.py}
 
-\subsection{finally-Teil}
-\lstinputlisting{listings/v3_exception7.py}
+%\subsection{finally-Teil}
+%\lstinputlisting{listings/v3_exception7.py}
 
-\subsection{Exceptions generieren}
-\lstinputlisting{listings/v3_exception8.py}
+%\subsection{Exceptions generieren}
+%\lstinputlisting{listings/v3_exception8.py}
 
 \section[Dateien]{Dateien \tiny{Kap. 11}}
 
@@ -37,27 +48,13 @@ mehrfache Ausnahmen gruppieren:\\
 \end{itemize}
 
 \subsection{Dateien lesen und schreiben}
-\begin{itemize}
-	\item Datei lesen:
-	\lstinputlisting{listings/v3_datei3.py}
-	\item Datei schreiben:
-	\lstinputlisting{listings/v3_datei4.py}
-	\item Datei schliessen:
-	\lstinputlisting{listings/v3_datei5.py}
-\end{itemize}
 
-\subsubsection{Datei lesen}
-\begin{itemize}
-	\item mit \texttt{read()}
-	\lstinputlisting{listings/v3_datei6.py}
-	\item besser mit der \texttt{with}-Anweisung
-	\lstinputlisting{listings/v3_datei7.py}
-	\item Variante mit \texttt{readlines()}
-	\lstinputlisting{listings/v3_datei8.py}
-\end{itemize}
+\lstinputlisting{listings/v3_datei0.py}
 
-\subsubsection{Datei schreiben}
-\lstinputlisting{listings/v3_datei9.py}
+\subsubsection{\texttt{with}-Anweisung}
+Dateien sollten besser mit einer \texttt{with}-Anweisung geöffnet werden, dadurch wird sie am ende des Blocks automatisch geschlossen.\\
+Beispiel:
+\lstinputlisting{listings/v3_datei7.py}
 
 \subsubsection{glob}
 \lstinputlisting{listings/v3_datei10.py}

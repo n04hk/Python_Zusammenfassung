@@ -9,33 +9,39 @@
 		\item Wert- und Typänderung erlaubt!
 	\end{itemize}
 \end{itemize}
-\begin{tabular}{|l|l|l|}
-	\hline 
-	\textbf{Datentyp} &\textbf{Beschreibung} &\textbf{False-Wert}\\
-	\hline
-	\texttt{NoneType} &Indikator für nichts, keinen Wert &\texttt{None}\\ 
-	\hline
-	\textbf{Numerische Datentypen}&&\\
-	\texttt{int} &Ganze Zahlen &\texttt{0}\\ 
-	\texttt{float} &Gleitkommazahlen &\texttt{0.0}\\ 
-	\texttt{bool} &Boolesche Werte &\texttt{False}\\ 
-	\texttt{complex} &Komplexe Zahlen &\texttt{0 + 0j}\\ 
-	\hline 
-	\textbf{Sequenzielle Datentypen}&&\\
-	\texttt{str} &Zeichenketten oder Strings &\texttt{''}\\
-	\texttt{list} &Listen (veränderlich) &\texttt{[]}\\
-	\texttt{tuple} &Tupel (unveränderlich) &\texttt{()}\\
-	\texttt{bytes} &Sequenz von Bytes (unveränderlich) &\texttt{b''}\\
-	\texttt{bytearray} &Sequenz von Bytes (veränderlich) &\texttt{bytearray(b'')}\\
-	\hline
-	\textbf{Assoziative Datentypen}&&\\
-	\texttt{dict} &Dictionary (Schlüssel-Wert-Paare) &\texttt{\{\}}\\
-	\hline
-	\textbf{Mengen}&&\\
-	\texttt{set} &Menge mit einmalig vorkommenden Objekten &\texttt{set()}\\
-	\texttt{frozenset} &Wie set jedoch unveränderlich &\texttt{frozenset()}\\
-	\hline
-\end{tabular}\\
+\begin{table}[H]
+\begin{threeparttable}
+	\caption{Datentypen}
+	\label{tab:T_Datentypen}
+	\begin{tabular}{|l|l|l|}
+		\hline 
+		\textbf{Datentyp} &\textbf{Beschreibung} &\textbf{False-Wert}\\
+		\hline
+		\texttt{NoneType} &Indikator für nichts, keinen Wert &\texttt{None}\\ 
+		\hline
+		\textbf{Numerische Datentypen}&&\\
+		\texttt{int} &Ganze Zahlen &\texttt{0}\\ 
+		\texttt{float} &Gleitkommazahlen &\texttt{0.0}\\ 
+		\texttt{bool} &Boolesche Werte &\texttt{False}\\ 
+		\texttt{complex} &Komplexe Zahlen &\texttt{0 + 0j}\\ 
+		\hline 
+		\textbf{Sequenzielle Datentypen}&&\\
+		\texttt{str} &Zeichenketten oder Strings &\texttt{''}\\
+		\texttt{list} &Listen (veränderlich) &\texttt{[]}\\
+		\texttt{tuple} &Tupel (unveränderlich) &\texttt{()}\\
+		\texttt{bytes} &Sequenz von Bytes (unveränderlich) &\texttt{b''}\\
+		\texttt{bytearray} &Sequenz von Bytes (veränderlich) &\texttt{bytearray(b'')}\\
+		\hline
+		\textbf{Assoziative Datentypen}&&\\
+		\texttt{dict} &Dictionary (Schlüssel-Wert-Paare) &\texttt{\{\}}\\
+		\hline
+		\textbf{Mengen}&&\\
+		\texttt{set} &Menge mit einmalig vorkommenden Objekten &\texttt{set()}\\
+		\texttt{frozenset} &Wie set jedoch unveränderlich &\texttt{frozenset()}\\
+		\hline
+	\end{tabular}
+\end{threeparttable}
+\end{table}
 \begin{itemize}
 	\item Python erkennt den Datentyp automatisch
 	\item Python ordnet jeder Variablen den Datentyp zu
@@ -57,56 +63,77 @@
 \end{itemize}
 
 \subsubsection{Arithmetische Operationen}
-\begin{tabular}{|c|l|}
-	\hline 
-	\textbf{Operator} &\textbf{Beschreibung}\\ 
-	\texttt{x + y} &Summe von \texttt{x} und \texttt{y}\\ 
-	\texttt{x - y} &Differenz von \texttt{x} und \texttt{y}\\ 
-	\texttt{x * y} &Produkt von \texttt{x} und \texttt{y}\\ 
-	\texttt{x / y} &Quotient von \texttt{x} und \texttt{y}\\  
-	\texttt{x // y} &Ganzzahliger Quotient$^1$ von \texttt{x} und \texttt{y}\\ 
-	\texttt{x \% y} &Rest der Division$^1$ von \texttt{x} durch \texttt{y}\\ 
-	\texttt{+x} &Positives Vorzeichen\\ 
-	\texttt{-x} &Negatives Vorzeichen\\ 
-	\texttt{abs(x)} &Betrag von \texttt{x}\\ 
-	\texttt{x**y} &Potenzieren, \texttt{x\textsuperscript{y}}\\ 
-	\hline 
-\end{tabular}\\
-\textsuperscript{1}Nicht definiert für den Datentyp \texttt{complex}\\
+\begin{table}[H]
+\begin{threeparttable}
+	\caption{Arithmetische Operationen}
+	\begin{tabular}{|c|l|}
+		\hline 
+		\textbf{Operator} &\textbf{Beschreibung}\\ 
+		\texttt{x + y} &Summe von \texttt{x} und \texttt{y}\\ 
+		\texttt{x - y} &Differenz von \texttt{x} und \texttt{y}\\ 
+		\texttt{x * y} &Produkt von \texttt{x} und \texttt{y}\\ 
+		\texttt{x / y} &Quotient von \texttt{x} und \texttt{y}\\  
+		\texttt{x // y} &Ganzzahliger Quotient$^1$ von \texttt{x} und \texttt{y}\\ 
+		\texttt{x \% y} &Rest der Division$^1$ von \texttt{x} durch \texttt{y}\\ 
+		\texttt{+x} &Positives Vorzeichen\\ 
+		\texttt{-x} &Negatives Vorzeichen\\ 
+		\texttt{abs(x)} &Betrag von \texttt{x}\\ 
+		\texttt{x**y} &Potenzieren, \texttt{x\textsuperscript{y}}\\ 
+		\hline 
+	\end{tabular}
+\textsuperscript{1}Nicht definiert für den Datentyp \texttt{complex}
+\end{threeparttable}
+\end{table}
+
 \begin{achtung}
-	\texttt{x++} und \texttt{x--} gibt es \textbf{nicht}, aber \texttt{x += 1, x -= 1, x *= 2, ...}
+	\texttt{x++} und \texttt{x-{}-} gibt es \textbf{nicht}, aber \texttt{x += 1, x -= 1, x *= 2, ...}
 \end{achtung}
-
-\subsubsection{Vergleichende Operatoren}
-\begin{tabular}{|c|l|}
-	\hline 
-	\textbf{Operator} &\textbf{Beschreibung}\\ 
-	\hline 
-	\texttt{==} &wahr, wenn \texttt{x} und \texttt{y} gleich sind\\ 
-	\texttt{!=} &wahr, wenn \texttt{x} und \texttt{y} verschieden sind\\ 
-	\texttt{<} &wahr, wenn \texttt{x} kleiner als \texttt{y} ist\textsuperscript{2}\\ 
-	\texttt{<=} &wahr, wenn \texttt{x} kleiner oder gleich \texttt{y} ist\textsuperscript{2}\\ 
-	\texttt{>} &wahr, wenn \texttt{x} grösser als \texttt{y} ist\textsuperscript{2}\\ 
-	\texttt{>=} &wahr, wenn \texttt{x} grösser oder gleich \texttt{y} ist\textsuperscript{2}\\ 
-	\hline 
-\end{tabular}\\
-\textsuperscript{2}Nicht definiert für den Datentyp \texttt{complex}\\
-
-\subsubsection{Bitweise Operatoren für den Datentypen \texttt{int}}
-\begin{tabular}{|c|l|}
-	\hline 
-	\textbf{Operator} &\textbf{Beschreibung}\\ 
-	\hline 
-	\texttt{x \& y} &bitweises UND von \texttt{x} und \texttt{y}\\ 
-	\texttt{x | y} &bitweises ODER von \texttt{x} und \texttt{y}\\
-	\texttt{x \textasciicircum y} &bitweises EXOR von \texttt{x} und \texttt{y}\\ 
-	\texttt{\textasciitilde x} &bitweises Komplement von \texttt{x}\\ 
-	\texttt{x << n} &Bit-Verschiebung um \texttt{n} Stellen nach links\\ 
-	\texttt{x >> n} &Bit-Verschiebung um \texttt{n} Stellen nach rechts\\ 
-	\hline 
-\end{tabular}
+\begin{minipage}[t]{0.5\textwidth}
+	\subsubsection{Vergleichende Operatoren}
+	\begin{table}[H]
+	\begin{threeparttable}
+	\caption{Vergleichende Operatoren}
+	\begin{tabular}{|c|l|}
+		\hline 
+		\textbf{Operator} &\textbf{Beschreibung}\\ 
+		\hline 
+		\texttt{==} &wahr, wenn \texttt{x} und \texttt{y} gleich sind\\ 
+		\texttt{!=} &wahr, wenn \texttt{x} und \texttt{y} verschieden sind\\ 
+		\texttt{<} &wahr, wenn \texttt{x} kleiner als \texttt{y} ist\textsuperscript{2}\\ 
+		\texttt{<=} &wahr, wenn \texttt{x} kleiner oder gleich \texttt{y} ist\textsuperscript{2}\\ 
+		\texttt{>} &wahr, wenn \texttt{x} grösser als \texttt{y} ist\textsuperscript{2}\\ 
+		\texttt{>=} &wahr, wenn \texttt{x} grösser oder gleich \texttt{y} ist\textsuperscript{2}\\ 
+		\hline 
+	\end{tabular}
+	\textsuperscript{2}Nicht definiert für den Datentyp \texttt{complex}\\
+	\end{threeparttable}
+	\end{table}
+\end{minipage}
+\begin{minipage}[t]{0.5\textwidth}
+	\subsubsection{Bitweise Operatoren für den Datentypen \texttt{int}}
+	\begin{table}[H]
+	\begin{threeparttable}
+	\caption{Bitweise Operatoren}
+	\begin{tabular}{|c|l|}
+		\hline 
+		\textbf{Operator} &\textbf{Beschreibung}\\ 
+		\hline 
+		\texttt{x \& y} &bitweises UND von \texttt{x} und \texttt{y}\\ 
+		\texttt{x | y} &bitweises ODER von \texttt{x} und \texttt{y}\\
+		\texttt{x \textasciicircum y} &bitweises EXOR von \texttt{x} und \texttt{y}\\ 
+		\texttt{\textasciitilde x} &bitweises Komplement von \texttt{x}\\ 
+		\texttt{x << n} &Bit-Verschiebung um \texttt{n} Stellen nach links\\ 
+		\texttt{x >> n} &Bit-Verschiebung um \texttt{n} Stellen nach rechts\\ 
+		\hline 
+	\end{tabular}
+	\end{threeparttable}
+	\end{table}
+\end{minipage}
 
 \subsubsection{Methoden nur dür den Datentyp \texttt{complex}}
+\begin{table}[H]
+\begin{threeparttable}
+\caption{Methoden für complex}
 \begin{tabular}{|l|l|}
 	\hline 
 	\textbf{Methode} &\textbf{Beschreibung}\\ 
@@ -116,6 +143,8 @@
 	\texttt{x.conjugate()} &Liefert die zu \texttt{x} konjugiert komplexe Zahl\\  
 	\hline 
 \end{tabular}
+\end{threeparttable}
+\end{table}
 
 \subsection[Sequentielle Datentypen]{Sequentielle Datentypen \tiny{Kap. 5}}
 \begin{itemize}
@@ -125,7 +154,9 @@
 	\item \texttt{bytes}
 	\item \texttt{bytearray}
 \end{itemize}
-Die folgenden Operatoren sind für \textbf{alle} sequentiellen Datentypen definiert:\\
+\begin{table}[H]
+\begin{threeparttable}
+\caption{Methoden für sequenzielle Datentypen}
 \begin{tabular}{|l|l|}
 	\hline 
 	\textbf{Operator} &\textbf{Beschreibung}\\ 
@@ -144,11 +175,16 @@ Die folgenden Operatoren sind für \textbf{alle} sequentiellen Datentypen defini
 	\texttt{s.count(x)} &Zählt, wie oft \texttt{x} in \texttt{s} vorkommt.\\
 	\hline 
 \end{tabular}
+\end{threeparttable}
+\end{table}
 
 \subsection[Assoziative Datentypen]{Assoziative Datentypen \tiny{Kap. 6}}
 \begin{itemize}
 	\item dict
 \end{itemize}
+\begin{table}[H]
+\begin{threeparttable}
+\caption{Methoden für Assoziative Datentypen}
 \begin{tabular}{|l|l|}
 	\hline 
 	\textbf{Operator} &\textbf{Beschreibung}\\ 
@@ -157,12 +193,6 @@ Die folgenden Operatoren sind für \textbf{alle} sequentiellen Datentypen defini
 	\texttt{d[k]} &Zugriff auf den Wert mit dem Schlüssel \texttt{k}\\
 	\texttt{k in d} &Liefert \texttt{True}, wenn der Schlüssel \texttt{k} in \texttt{d} ist.\\
 	\texttt{k not in d} &Liefert \texttt{True}, wenn der Schlüssel \texttt{k} nicht in \texttt{d} ist.\\
-	\hline 
-\end{tabular}\\
-\begin{tabular}{|l|l|}
-	\hline 
-	\textbf{Operator} &\textbf{Beschreibung}\\ 
-	\hline 
 	\texttt{d.clear()} &Löscht alle Elemente aus dem Dictionary.\\
 	\texttt{d.copy()} &Erstellt eine Kopie des Dictionaries.\\
 	\texttt{d.get([k,[x]])} &Gibt den Wert des Schlüssels \texttt{k} zurück, ansonsten den Wert [x].\\
@@ -174,6 +204,8 @@ Die folgenden Operatoren sind für \textbf{alle} sequentiellen Datentypen defini
 	\texttt{d.setdefault(k,[x])} &Setzt den Wert [x] für den Schlüssel \texttt{k}.\\
 	\hline 
 \end{tabular}
+\end{threeparttable}
+\end{table}
 
 \subsection[Mengen]{Mengen \tiny{Kap. 7}}
 \begin{itemize}
@@ -183,6 +215,9 @@ Die folgenden Operatoren sind für \textbf{alle} sequentiellen Datentypen defini
 
 Ein set enthält eine ungeordnete Sammlung von einmaligen und unveränderlichen Elementen. In anderen Worten: Ein Element kann in einem set-Objekt nicht mehrmals vorkommen, was bei Listen und Tupel jedoch möglich ist.
 
+\begin{table}[H]
+\begin{threeparttable}
+\caption{Methoden für Mengen}
 \begin{tabular}{|l|l|}
 	\hline 
 	\textbf{Operator} &\textbf{Beschreibung}\\ 
@@ -199,3 +234,5 @@ Ein set enthält eine ungeordnete Sammlung von einmaligen und unveränderlichen 
 	\texttt{s.pop()} &Liefert ein beliebiges Element welches zugleich aus der Menge entfernt wird\\
 	\hline 
 \end{tabular}
+\end{threeparttable}
+\end{table}

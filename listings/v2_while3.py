@@ -1,4 +1,4 @@
 while Bedingung:
     Anweisung1
     if Fehler:
-        break
+        break # bricht die Schleife vorzeitig ab
