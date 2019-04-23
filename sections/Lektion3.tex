@@ -65,46 +65,37 @@ Beispiel:
 \section{Strings}
 
 \subsection[Stringformatierung]{Stringformatierung \tiny{Kap. 12}}
-\begin{itemize}
-	\item Stringformatierung benötigt man um Daten hübsch auszugeben
+Stringformatierung benötigt man um Daten hübsch auszugeben oder systematisch abzuspeichern.\\
+\begin{minipage}[t]{0.49\textwidth}
 	\lstinputlisting{listings/v3_strings1.py}
-	\item oder systematisch abzuspeichern
+\end{minipage}
+\begin{minipage}[t]{0.02\textwidth} $ \quad $ \end{minipage}
+\begin{minipage}[t]{0.49\textwidth}
 	\lstinputlisting{listings/v3_strings2.py}
-\end{itemize}
+\end{minipage}
 
 \subsubsection{im C-Stil (à la printf)}
 \lstinputlisting{listings/v3_strings3.py}
 
-\subsubsection{mit \texttt{format()}}
-\begin{itemize}
-	\lstinputlisting{listings/v3_strings4.py}
-	\item mit Index:
-	\lstinputlisting{listings/v3_strings5.py}
-	\item mit Index und Format:
-	\lstinputlisting{listings/v3_strings6.py}
-	\item links-/rechtsbündig oder zentriert:
-	\lstinputlisting{listings/v3_strings7.py}
-	\item mit Schlüsselwortparameter:
-	\lstinputlisting{listings/v3_strings8.py}
-	\item mit Dictionary:
-	\lstinputlisting{listings/v3_strings9.py}
-\end{itemize}
+\begin{minipage}[t]{0.49\textwidth}
+	\subsubsection{mit \texttt{format()}}
+	\lstinputlisting{listings/v3_strings23.py}
+\end{minipage}
+\begin{minipage}[t]{0.02\textwidth} $ \quad $ \end{minipage}
+\begin{minipage}[t]{0.49\textwidth}
+	\subsubsection{mit Stringliterale}
+	\lstinputlisting{listings/v3_strings10.py}
+	
+	\subsubsection{mit \texttt{string}-Methoden}
+	\lstinputlisting{listings/v3_strings11.py}
+	
+	\subsection{Alles über Strings \tiny{Kap. 19}}
+	\lstinputlisting{listings/v3_strings24.py}
+\end{minipage}
 
-\subsubsection{mit Stringliterale}
-\lstinputlisting{listings/v3_strings10.py}
 
-\subsubsection{mit \texttt{string}-Methoden}
-\lstinputlisting{listings/v3_strings11.py}
 
-\subsection{Alles über Strings \tiny{Kap. 19}}
-\begin{itemize}
-	\item Unicode-Nummer => Zeichen
-	\lstinputlisting{listings/v3_strings12.py}
-	\item Zeichen => Unicode-Nummer
-	\lstinputlisting{listings/v3_strings13.py}
-	\item String => bytes
-	\lstinputlisting{listings/v3_strings14.py}
-\end{itemize}
+	
 
 \subsubsection{Strings aufspalten}
 \begin{itemize}
