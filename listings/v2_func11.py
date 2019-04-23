@@ -1,5 +1,6 @@
 def einfache_funktion(x, **kwargs):
     print('x =', x)
-    print('kwargs =', kwargs)   # die restlichen Argumente sind im Dictionary kwargs
+	# die restlichen Argumente sind im Dictionary kwargs
+    print('kwargs =', kwargs)   
 
-einfache_funktion(x='Hallo', farbe='rot', durchmesser=10)
+einfache_funktion(x='Hey', farbe='rot', durchmesser=10)

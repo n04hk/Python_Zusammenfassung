@@ -1,4 +1,4 @@
-\part*{Lektion 3: Exceptions, Dateien und Strings}
+%\part*{Lektion 3: Exceptions, Dateien und Strings}
 \section[Exceptions]{Exceptions \tiny{Kap. 20}}
 \begin{itemize}
 	\item Fehler (\url{https://docs.python.org/3/tutorial/errors.html}) können auftreten, z.B.:
@@ -24,19 +24,8 @@ Nicht empfohlen, da auch Exceptions geschluckt werden, die weitergegeben werden 
 	5		& exist. nicht & Err: [Errno 2] No such file or directory: 'dat.txt' $ \quad $ Auf wiedersehen $ \quad $ Prog. laeuft noch
 \end{tabular}\\[10pt]
 'Auf wiedersehen' wird immer ausgegeben, 'Prog. laeuft noch' wird dann ausgegeben wenn kein Fehler auftrat oder dieser abgefangen wurde.
-%\lstinputlisting{listings/v3_exception4.py}
-%mehrfache Ausnahmen gruppieren:\\
-%\lstinputlisting{listings/v3_exception5.py}
 
-%\subsection{else-Teil}
-%\lstinputlisting{listings/v3_exception6.py}
-
-%\subsection{finally-Teil}
-%\lstinputlisting{listings/v3_exception7.py}
-
-%\subsection{Exceptions generieren}
-%\lstinputlisting{listings/v3_exception8.py}
-
+\pagebreak
 \section[Dateien]{Dateien \tiny{Kap. 11}}
 
 \subsection{Datei öffnen}
@@ -51,10 +40,17 @@ Nicht empfohlen, da auch Exceptions geschluckt werden, die weitergegeben werden 
 
 \lstinputlisting{listings/v3_datei0.py}
 
-\subsubsection{\texttt{with}-Anweisung}
-Dateien sollten besser mit einer \texttt{with}-Anweisung geöffnet werden, dadurch wird sie am ende des Blocks automatisch geschlossen.\\
-Beispiel:
-\lstinputlisting{listings/v3_datei7.py}
+
+\begin{minipage}[t]{0.49\textwidth}
+	\subsubsection{\texttt{with}-Anweisung}
+	Dateien sollten besser mit einer \texttt{with}-Anweisung geöffnet werden, dadurch wird sie am ende des Blocks automatisch geschlossen.
+\end{minipage}
+\begin{minipage}[t]{0.02\textwidth} $ \quad $\end{minipage}
+\begin{minipage}[t]{0.49\textwidth}
+	\lstinputlisting{listings/v3_datei7.py}
+\end{minipage}
+
+
 
 \subsubsection{glob}
 \lstinputlisting{listings/v3_datei10.py}
@@ -77,48 +73,55 @@ Stringformatierung benötigt man um Daten hübsch auszugeben oder systematisch a
 \subsubsection{im C-Stil (à la printf)}
 \lstinputlisting{listings/v3_strings3.py}
 
-\begin{minipage}[t]{0.49\textwidth}
-	\subsubsection{mit \texttt{format()}}
-	\lstinputlisting{listings/v3_strings23.py}
-\end{minipage}
-\begin{minipage}[t]{0.02\textwidth} $ \quad $ \end{minipage}
+\subsubsection{mit \texttt{format()}}
+\lstinputlisting{listings/v3_strings23.py}
+
 \begin{minipage}[t]{0.49\textwidth}
 	\subsubsection{mit Stringliterale}
 	\lstinputlisting{listings/v3_strings10.py}
-	
+\end{minipage}
+\begin{minipage}[t]{0.02\textwidth} $ \quad $ \end{minipage}
+\begin{minipage}[t]{0.49\textwidth}
 	\subsubsection{mit \texttt{string}-Methoden}
-	\lstinputlisting{listings/v3_strings11.py}
-	
+	\lstinputlisting{listings/v3_strings11.py}	
+\end{minipage}
+
+\begin{minipage}[t]{0.39\textwidth}
 	\subsection{Alles über Strings \tiny{Kap. 19}}
 	\lstinputlisting{listings/v3_strings24.py}
+	\subsubsection{Strings kombinieren}
+	\lstinputlisting{listings/v3_strings17.py}
+\end{minipage}
+\begin{minipage}[t]{0.02\textwidth} $ \quad $\end{minipage}
+\begin{minipage}[t]{0.59\textwidth}
+	\subsubsection{Strings aufspalten}
+	$\bullet$ \texttt{split()}
+	\lstinputlisting{listings/v3_strings15.py}
+	$\bullet$ \texttt{splitlines()}
+	\lstinputlisting{listings/v3_strings16.py}
 \end{minipage}
 
 
-
-	
-
-\subsubsection{Strings aufspalten}
-\begin{itemize}
-	\item \texttt{split()}
-	\lstinputlisting{listings/v3_strings15.py}
-	\item \texttt{splitlines()}
-	\lstinputlisting{listings/v3_strings16.py}
-\end{itemize}
-
-\subsubsection{Strings kombinieren}
-\lstinputlisting{listings/v3_strings17.py}
-
-\subsubsection{Suchen von Teilstrings}
-\lstinputlisting{listings/v3_strings18.py}
-
-\subsubsection{Ersetzen von Teilstrings}
-\lstinputlisting{listings/v3_strings19.py}
+\begin{minipage}[t]{0.49\textwidth}
+	\subsubsection{Suchen von Teilstrings}
+	\lstinputlisting{listings/v3_strings18.py}
+\end{minipage}
+\begin{minipage}[t]{0.02\textwidth} $ \quad $\end{minipage}
+\begin{minipage}[t]{0.49\textwidth}
+	\subsubsection{Ersetzen von Teilstrings}
+	\lstinputlisting{listings/v3_strings19.py}
+\end{minipage}
 
 \subsubsection{Strings bereinigen}
 \lstinputlisting{listings/v3_strings20.py}
 
-\subsubsection{Klein- und Grossbuchstaben}
-\lstinputlisting{listings/v3_strings21.py}
+\begin{minipage}[t]{0.49\textwidth}
+	\subsubsection{Klein- und Grossbuchstaben}
+	\lstinputlisting{listings/v3_strings21.py}
+\end{minipage}
+\begin{minipage}[t]{0.02\textwidth} $ \quad $\end{minipage}
+\begin{minipage}[t]{0.49\textwidth}
+	\subsubsection{Strings testen}
+	\lstinputlisting{listings/v3_strings22.py}
+\end{minipage}
 
-\subsubsection{Strings testen}
-\lstinputlisting{listings/v3_strings22.py}

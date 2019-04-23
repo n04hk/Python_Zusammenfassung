@@ -1,4 +1,6 @@
 def summe_und_differenz(a, b):
-    return (a + b, a - b)       # Tupel
+    # Rueckgabe Typ ist Tupel
+	return (a + b, a - b)
 
-summe, differenz = summe_und_differenz(5, 3)    # Tupel entpacken
+# Tupel entpacken
+summe, differenz = summe_und_differenz(5, 3)    

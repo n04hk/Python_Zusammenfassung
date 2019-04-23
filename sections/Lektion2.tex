@@ -1,46 +1,24 @@
-\part*{Lektion 2: Verzweigungen, Schleifen und Funktionen}
+%\part*{Lektion 2: Verzweigungen, Schleifen und Funktionen}
 \section[Verzweigungen]{Verzweigungen \tiny{Kap. 9}}
 \subsection{\texttt{if}}
 \lstinputlisting{listings/v2_if1.py}
 %Anweisungen 1 \& 2 nur ausführen, wenn die Bedingung \textbf{wahr} ist.\\
 \begin{achtung}
-	Alle Anweisungen im gleichen Codeblock müssen gleich eingerückt sein, z.B. mit vier Leerzeichen, sonst wird ein Fehler ausgegeben.<
+	Alle Anweisungen im gleichen Codeblock müssen gleich eingerückt sein, z.B. mit vier Leerzeichen, sonst wird ein Fehler ausgegeben.
 \end{achtung}
 
-\subsubsection{\texttt{if}-Anweisung mit \texttt{else}-Zweig}
-\lstinputlisting{listings/v2_if2.py}
-<<<<<<< HEAD
+\begin{minipage}[t]{0.59\textwidth}
+	\subsubsection{\texttt{if}-Anweisung mit \texttt{else}-Zweig}
+	\lstinputlisting{listings/v2_if2.py}
+\end{minipage} 
+\begin{minipage}[t]{0.02\textwidth} $ \quad $\end{minipage}
+\begin{minipage}[t]{0.39\textwidth}
+	
+	\subsubsection{\texttt{elif}-Zweige}
+	\lstinputlisting{listings/v2_if3.py}
+\end{minipage}
+$ \quad $\\[8pt]
 Für jeden Datentyp gibt es einen Wert, der als \textbf{unwahr} gilt. Siehe \autoref{tab:T_Datentypen} auf der Seite \pageref{tab:T_Datentypen}.
-=======
-\begin{itemize}
-	\item Anweisungen 1 \& 2, falls Bedingung \textbf{wahr}
-	\item Anweisungen 3 \& 4, falls Bedingung \textbf{unwahr}
-\end{itemize}
-Für jeden Datentyp gibt es einen Wert, der als \textbf{unwahr} gilt:\\
-\begin{tabular}{|l|l|}
-	\hline
-	\textbf{Datentyp} &\textbf{False-Wert}\\
-	\hline
-	\texttt{NoneType} &\texttt{None}\\
-	\texttt{int} &\texttt{0}\\
-	\texttt{float} &\texttt{0.0}\\
-	\texttt{bool} &\texttt{False}\\
-	\texttt{complex} &\texttt{0 + 0j}\\
-	\texttt{str} &\texttt{'' oder \dq \dq  (leerer String)} \\
-	\texttt{list} &\texttt{[]}\\
-	\texttt{tuple} &\texttt{()}\\
-	\texttt{bytes} &\texttt{b''}\\
-	\texttt{bytearray} &\texttt{bytearray(b'')}\\
-	\texttt{dict} &\texttt{\{\}}\\ 
-	\texttt{set} &\texttt{set()}\\
-	\texttt{frozenset} &\texttt{frozenset()}\\
-	\hline
-\end{tabular}
->>>>>>> 68541747da39b45e001fcad915fbdab7f9c60e9d
-
-\subsubsection{\texttt{elif}-Zweige}
-\lstinputlisting{listings/v2_if3.py}
-\texttt{elif} = \texttt{else if}\\
 
 \begin{achtung}
 	Python kennt keine \texttt{switch}-\texttt{case}-Anweisung.
@@ -66,82 +44,111 @@ Für jeden Datentyp gibt es einen Wert, der als \textbf{unwahr} gilt:\\
 %\texttt{break} bricht die \texttt{while}-Schleife vorzeitig ab
 \end{minipage}
 
-\subsubsection{\texttt{else}-Teil}
-\lstinputlisting{listings/v2_while4.py}
-\texttt{else}-Teil: wenn die Schleife \textbf{nicht} durch \texttt{break} abgebrochen wurde
+\begin{minipage}[t]{0.44\textwidth}
+	\subsubsection{\texttt{else}-Teil}
+	\lstinputlisting{listings/v2_while4.py}
+\end{minipage}
+\begin{minipage}[t]{0.02\textwidth} $ \quad $\end{minipage}
+\begin{minipage}[t]{0.54\textwidth}
+	\subsection{\texttt{for}}
+	\lstinputlisting{listings/v2_for1.py}
+	\begin{itemize}
+		\item dient zur Iteration einer Sequenz
+		\item Sequenz muss ein iterierbares Objekt sein:\\
+		\texttt{list}, \texttt{tuple}, \texttt{dict}, \texttt{str}, \texttt{bytes}, \texttt{bytearray}, \texttt{set}, \texttt{frozenset}
+		\item Die \texttt{for}-Schleife kennt auch \texttt{continue} und \texttt{break} somit gibt es auch einen \texttt{else} teil analog zur \texttt{while}-schleife.
+	\end{itemize}
+\end{minipage}
 
-\subsection{\texttt{for}}
-\lstinputlisting{listings/v2_for1.py}
-\begin{itemize}
-	\item dient zur Iteration einer Sequenz
-	\item Sequenz muss ein iterierbares Objekt sein:\\
-	\texttt{list}, \texttt{tuple}, \texttt{dict}, \texttt{str}, \texttt{bytes}, \texttt{bytearray}, \texttt{set}, \texttt{frozenset}
-	\item Die \texttt{for}-Schleife kennt auch \texttt{continue} und \texttt{break} somit gibt es auch einen \texttt{else} teil analog zur \texttt{while}-schleife.
-\end{itemize}
+
 
 
 
 \section[Funktionen]{Funktionen \tiny{Kap. 14}}
-Python besitzt eine grosse Standard-Bibliothek, z.B.:
 \lstinputlisting{listings/v2_func1.py}
-\url{https://docs.python.org/3/library/}\\
+Standart Bibliotheken:  \url{https://docs.python.org/3/library/}
 
-und eingebaute Datentypen:\\
-\url{https://docs.python.org/3/library/stdtypes.html}\\
+und eingebaute Datentypen:  \url{https://docs.python.org/3/library/stdtypes.html}
 
-und eingebaute Funktionen:\\
-\url{https://docs.python.org/3/library/functions.html}
+und eingebaute Funktionen:  \url{https://docs.python.org/3/library/functions.html}
 
 \subsection{Funktionsdefinition}
 einfache Funktionsdefinition:\\
 \lstinputlisting{listings/v2_func2.py}
 
-Beispiel:\\
-\lstinputlisting{listings/v2_func3.py}
-
-\begin{itemize}
-	\item Der Funktionsname kann frei gewählt werden
-	\item Parameternamen durch Kommas trennen
-	\item Codeblock gleichmässig einrücken
-	\item Der Rückgabewert der Funktion ist \texttt{None}, falls nichts angegeben wird.
-	\item \texttt{return}-Anweisung beendet den Funktionsaufruf
-	\item es sind mehrere \texttt{return}-Anweisungen sind erlaubt, wie in C/C++
-\end{itemize}
-
-\lstinputlisting{listings/v2_func5.py}
+\begin{minipage}[t]{0.49\textwidth}
+	Beispiel:
+	\lstinputlisting{listings/v2_func3.py}
+	\lstinputlisting{listings/v2_func5.py}
+\end{minipage}
+\begin{minipage}[t]{0.02\textwidth} $ \quad $\end{minipage}
+\begin{minipage}[t]{0.49\textwidth}
+	\begin{itemize}
+		\item Der Funktionsname kann frei gewählt werden
+		\item Parameternamen durch Kommas trennen
+		\item Codeblock gleichmässig einrücken
+		\item Der Rückgabewert der Funktion ist \texttt{None}, falls nichts angegeben wird.
+		\item \texttt{return}-Anweisung beendet den Funktionsaufruf
+		\item es sind mehrere \texttt{return}-Anweisungen sind erlaubt, wie in C/C++
+	\end{itemize}
+\end{minipage}
 
 \subsection{Aufruf}
 \lstinputlisting{listings/v2_func6.py}
 
 \subsection{Weiteres}
+\begin{minipage}[t]{0.49\textwidth}
+	\subsubsection{Standardwert für Parameter}
+	\lstinputlisting{listings/v2_func7.py}
+\end{minipage}
+\begin{minipage}[t]{0.02\textwidth} $ \quad $\end{minipage}
+\begin{minipage}[t]{0.49\textwidth}
+	\subsubsection{Mehrere Rückgabewerte}
+	\lstinputlisting{listings/v2_func8.py}
+\end{minipage}
 
-\subsubsection{Standardwert für Parameter}
-\lstinputlisting{listings/v2_func7.py}
+\begin{minipage}[t]{0.49\textwidth}
+	\subsubsection{Variable Anzahl von Argumenten}
+	\lstinputlisting{listings/v2_func9.py}
+\end{minipage}
+\begin{minipage}[t]{0.02\textwidth} $ \quad $\end{minipage}
+\begin{minipage}[t]{0.49\textwidth}
+	\subsubsection{Argumente entpacken}
+	\lstinputlisting{listings/v2_func10.py}
+\end{minipage}
 
-\subsubsection{Mehrere Rückgabewerte}
-\lstinputlisting{listings/v2_func8.py}
+\begin{minipage}[t]{0.56\textwidth}
+	\subsubsection{Beliebige Schlüsselwort-Parameter}
+	\lstinputlisting{listings/v2_func11.py}
+\end{minipage}
+\begin{minipage}[t]{0.02\textwidth} $ \quad $\end{minipage}
+\begin{minipage}[t]{0.42\textwidth}
+	\subsubsection{Schlüsselwortparameter entpacken}
+	\lstinputlisting{listings/v2_func12.py}
+\end{minipage}
 
-\subsubsection{Variable Anzahl von Argumenten}
-\lstinputlisting{listings/v2_func9.py}
-
-\subsubsection{Argumente entpacken}
-\lstinputlisting{listings/v2_func10.py}
-
-\subsubsection{Beliebige Schlüsselwort-Parameter}
-\lstinputlisting{listings/v2_func11.py}
-
-\subsubsection{Schlüsselwortparameter entpacken}
-\lstinputlisting{listings/v2_func12.py}
-
-\subsubsection{Globale Variablen}
-\lstinputlisting{listings/v2_func13.py}
-
-\subsubsection{Docstring - Funktion dokumentieren}
-PEP 257 - Docstring Conventions \url{https://www.python.org/dev/peps/pep-0257}
-\lstinputlisting{listings/v2_func14.py}
+\begin{minipage}[t]{0.49\textwidth}
+	\subsubsection{Globale Variablen}
+	\lstinputlisting{listings/v2_func13.py}
+\end{minipage}
+\begin{minipage}[t]{0.02\textwidth} $ \quad $\end{minipage}
+\begin{minipage}[t]{0.49\textwidth}
+	\subsubsection{Docstring - Funktion dokumentieren}
+	PEP 257 - Docstring Conventions\\
+	\url{https://www.python.org/dev/peps/pep-0257}
+	\lstinputlisting{listings/v2_func14.py}	
+\end{minipage}
 
 \subsubsection{Call-by-object-reference}
-mit veränderlichen Objekten:
-\lstinputlisting{listings/v2_func15.py}
-mit unveränderlichen Objekten:
-\lstinputlisting{listings/v2_func16.py}
+\begin{minipage}[t]{0.49\textwidth}
+	mit veränderlichen Objekten:
+	\lstinputlisting{listings/v2_func15.py}
+\end{minipage}
+\begin{minipage}[t]{0.02\textwidth} $ \quad $\end{minipage}
+\begin{minipage}[t]{0.49\textwidth}
+	mit unveränderlichen Objekten:
+	\lstinputlisting{listings/v2_func16.py}
+\end{minipage}
+
+
+

@@ -1,4 +1,4 @@
-\part*{Lektion 1: Variablen und Datentypen}
+%\part*{Lektion 1: Variablen und Datentypen}
 \section{Datentypen}
 \begin{itemize}
 	\item Variablen bezeichnen keinen bestimmten Typ.
@@ -42,6 +42,7 @@
 	\end{tabular}
 \end{threeparttable}
 \end{table}
+
 \begin{itemize}
 	\item Python erkennt den Datentyp automatisch
 	\item Python ordnet jeder Variablen den Datentyp zu
@@ -54,106 +55,106 @@
 	\item Python kennt keine implizite Typumwandlung
 \end{itemize}
 
+\pagebreak
 \subsection[Numerische Datentypen]{Numerische Datentypen \tiny{Kap. 4}}
-\begin{itemize}
-	\item \texttt{bool}
-	\item \texttt{int}
-	\item \texttt{float}
-	\item \texttt{complex}
-\end{itemize}
 
-\subsubsection{Arithmetische Operationen}
-\begin{table}[H]
-\begin{threeparttable}
-	\caption{Arithmetische Operationen}
-	\begin{tabular}{|c|l|}
-		\hline 
-		\textbf{Operator} &\textbf{Beschreibung}\\ 
-		\texttt{x + y} &Summe von \texttt{x} und \texttt{y}\\ 
-		\texttt{x - y} &Differenz von \texttt{x} und \texttt{y}\\ 
-		\texttt{x * y} &Produkt von \texttt{x} und \texttt{y}\\ 
-		\texttt{x / y} &Quotient von \texttt{x} und \texttt{y}\\  
-		\texttt{x // y} &Ganzzahliger Quotient$^1$ von \texttt{x} und \texttt{y}\\ 
-		\texttt{x \% y} &Rest der Division$^1$ von \texttt{x} durch \texttt{y}\\ 
-		\texttt{+x} &Positives Vorzeichen\\ 
-		\texttt{-x} &Negatives Vorzeichen\\ 
-		\texttt{abs(x)} &Betrag von \texttt{x}\\ 
-		\texttt{x**y} &Potenzieren, \texttt{x\textsuperscript{y}}\\ 
-		\hline 
-	\end{tabular}
-\textsuperscript{1}Nicht definiert für den Datentyp \texttt{complex}
-\end{threeparttable}
-\end{table}
+	$\bullet$ \texttt{bool} $\quad \bullet$ \texttt{int} $\quad\bullet$ \texttt{float} $\quad\bullet$ \texttt{complex}
+
+\begin{minipage}[t]{0.49\textwidth}
+	\subsubsection{Arithmetische Operationen}
+	\begin{table}[H]
+		\begin{threeparttable}
+			\caption{Arithmetische Operationen}
+			\begin{tabular}{|c|l|}
+				\hline 
+				\textbf{Operator} &\textbf{Beschreibung}\\ 
+				\texttt{x + y} &Summe von \texttt{x} und \texttt{y}\\ 
+				\texttt{x - y} &Differenz von \texttt{x} und \texttt{y}\\ 
+				\texttt{x * y} &Produkt von \texttt{x} und \texttt{y}\\ 
+				\texttt{x / y} &Quotient von \texttt{x} und \texttt{y}\\  
+				\texttt{x // y} &Ganzzahliger Quotient$^1$ von \texttt{x} und \texttt{y}\\ 
+				\texttt{x \% y} &Rest der Division$^1$ von \texttt{x} durch \texttt{y}\\ 
+				\texttt{+x} &Positives Vorzeichen\\ 
+				\texttt{-x} &Negatives Vorzeichen\\ 
+				\texttt{abs(x)} &Betrag von \texttt{x}\\ 
+				\texttt{x**y} &Potenzieren, \texttt{x\textsuperscript{y}}\\ 
+				\hline 
+			\end{tabular}
+			\textsuperscript{1}Nicht definiert für den Datentyp \texttt{complex}
+		\end{threeparttable}
+	\end{table}
+\end{minipage}
+\begin{minipage}[t]{0.02\textwidth} $ \quad $\end{minipage}
+\begin{minipage}[t]{0.49\textwidth}
+	\subsubsection{Vergleichende Operatoren}
+	\begin{table}[H]
+		\begin{threeparttable}
+			\caption{Vergleichende Operatoren}
+			\begin{tabular}{|c|l|}
+				\hline 
+				\textbf{Operator} &\textbf{Beschreibung}\\ 
+				\hline 
+				\texttt{==} &wahr, wenn \texttt{x} und \texttt{y} gleich sind\\ 
+				\texttt{!=} &wahr, wenn \texttt{x} und \texttt{y} verschieden sind\\ 
+				\texttt{<} &wahr, wenn \texttt{x} kleiner als \texttt{y} ist\textsuperscript{2}\\ 
+				\texttt{<=} &wahr, wenn \texttt{x} kleiner oder gleich \texttt{y} ist\textsuperscript{2}\\ 
+				\texttt{>} &wahr, wenn \texttt{x} grösser als \texttt{y} ist\textsuperscript{2}\\ 
+				\texttt{>=} &wahr, wenn \texttt{x} grösser oder gleich \texttt{y} ist\textsuperscript{2}\\ 
+				\hline 
+			\end{tabular}
+			\textsuperscript{2}Nicht definiert für den Datentyp \texttt{complex}\\
+		\end{threeparttable}
+	\end{table}
+\end{minipage}
+
+
 
 \begin{achtung}
 	\texttt{x++} und \texttt{x-{}-} gibt es \textbf{nicht}, aber \texttt{x += 1, x -= 1, x *= 2, ...}
 \end{achtung}
-\begin{minipage}[t]{0.5\textwidth}
-	\subsubsection{Vergleichende Operatoren}
-	\begin{table}[H]
-	\begin{threeparttable}
-	\caption{Vergleichende Operatoren}
-	\begin{tabular}{|c|l|}
-		\hline 
-		\textbf{Operator} &\textbf{Beschreibung}\\ 
-		\hline 
-		\texttt{==} &wahr, wenn \texttt{x} und \texttt{y} gleich sind\\ 
-		\texttt{!=} &wahr, wenn \texttt{x} und \texttt{y} verschieden sind\\ 
-		\texttt{<} &wahr, wenn \texttt{x} kleiner als \texttt{y} ist\textsuperscript{2}\\ 
-		\texttt{<=} &wahr, wenn \texttt{x} kleiner oder gleich \texttt{y} ist\textsuperscript{2}\\ 
-		\texttt{>} &wahr, wenn \texttt{x} grösser als \texttt{y} ist\textsuperscript{2}\\ 
-		\texttt{>=} &wahr, wenn \texttt{x} grösser oder gleich \texttt{y} ist\textsuperscript{2}\\ 
-		\hline 
-	\end{tabular}
-	\textsuperscript{2}Nicht definiert für den Datentyp \texttt{complex}\\
-	\end{threeparttable}
-	\end{table}
-\end{minipage}
-\begin{minipage}[t]{0.5\textwidth}
+\begin{minipage}[t]{0.49\textwidth}
 	\subsubsection{Bitweise Operatoren für den Datentypen \texttt{int}}
 	\begin{table}[H]
-	\begin{threeparttable}
-	\caption{Bitweise Operatoren}
-	\begin{tabular}{|c|l|}
-		\hline 
-		\textbf{Operator} &\textbf{Beschreibung}\\ 
-		\hline 
-		\texttt{x \& y} &bitweises UND von \texttt{x} und \texttt{y}\\ 
-		\texttt{x | y} &bitweises ODER von \texttt{x} und \texttt{y}\\
-		\texttt{x \textasciicircum y} &bitweises EXOR von \texttt{x} und \texttt{y}\\ 
-		\texttt{\textasciitilde x} &bitweises Komplement von \texttt{x}\\ 
-		\texttt{x << n} &Bit-Verschiebung um \texttt{n} Stellen nach links\\ 
-		\texttt{x >> n} &Bit-Verschiebung um \texttt{n} Stellen nach rechts\\ 
-		\hline 
-	\end{tabular}
-	\end{threeparttable}
+		\begin{threeparttable}
+			\caption{Bitweise Operatoren}
+			\begin{tabular}{|c|l|}
+				\hline 
+				\textbf{Operator} &\textbf{Beschreibung}\\ 
+				\hline 
+				\texttt{x \& y} &bitweises UND von \texttt{x} und \texttt{y}\\ 
+				\texttt{x | y} &bitweises ODER von \texttt{x} und \texttt{y}\\
+				\texttt{x \textasciicircum y} &bitweises EXOR von \texttt{x} und \texttt{y}\\ 
+				\texttt{\textasciitilde x} &bitweises Komplement von \texttt{x}\\ 
+				\texttt{x << n} &Bit-Verschiebung um \texttt{n} Stellen nach links\\ 
+				\texttt{x >> n} &Bit-Verschiebung um \texttt{n} Stellen nach rechts\\ 
+				\hline 
+			\end{tabular}
+		\end{threeparttable}
+	\end{table}
+\end{minipage}
+\begin{minipage}[t]{0.02\textwidth} $ \quad $\end{minipage}
+\begin{minipage}[t]{0.49\textwidth}
+	\subsubsection{Methoden nur dür den Datentyp \texttt{complex}}
+	\begin{table}[H]
+		\begin{threeparttable}
+			\caption{Methoden für complex}
+			\begin{tabular}{|l|l|}
+				\hline 
+				\textbf{Methode} &\textbf{Beschreibung}\\ 
+				\hline 
+				\texttt{x.real} &Realteil von \texttt{x} als Gleitkommazahl\\
+				\texttt{x.imag} &Imaginärteil von \texttt{x} als Gleitkommazahl\\ 
+				\texttt{x.conjugate()} &Liefert die zu \texttt{x} konjugiert\\&komplexe Zahl\\  
+				\hline 
+			\end{tabular}
+		\end{threeparttable}
 	\end{table}
 \end{minipage}
 
-\subsubsection{Methoden nur dür den Datentyp \texttt{complex}}
-\begin{table}[H]
-\begin{threeparttable}
-\caption{Methoden für complex}
-\begin{tabular}{|l|l|}
-	\hline 
-	\textbf{Methode} &\textbf{Beschreibung}\\ 
-	\hline 
-	\texttt{x.real} &Realteil von \texttt{x} als Gleitkommazahl\\
-	\texttt{x.imag} &Imaginärteil von \texttt{x} als Gleitkommazahl\\ 
-	\texttt{x.conjugate()} &Liefert die zu \texttt{x} konjugiert komplexe Zahl\\  
-	\hline 
-\end{tabular}
-\end{threeparttable}
-\end{table}
-
+\pagebreak
 \subsection[Sequentielle Datentypen]{Sequentielle Datentypen \tiny{Kap. 5}}
-\begin{itemize}
-	\item \texttt{str}
-	\item \texttt{list}
-	\item \texttt{tuple}
-	\item \texttt{bytes}
-	\item \texttt{bytearray}
-\end{itemize}
+
+$\bullet$ \texttt{str} $\quad \bullet$ \texttt{list} $\quad \bullet$ \texttt{tuple} $\quad \bullet$ \texttt{bytes} $\quad \bullet$ \texttt{bytearray}
 \begin{table}[H]
 \begin{threeparttable}
 \caption{Methoden für sequenzielle Datentypen}
@@ -207,6 +208,7 @@
 \end{threeparttable}
 \end{table}
 
+\pagebreak
 \subsection[Mengen]{Mengen \tiny{Kap. 7}}
 \begin{itemize}
 	\item set

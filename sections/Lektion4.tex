@@ -1,4 +1,4 @@
-\part*{Lektion 4: Listen-Abstraktion, Generatoren und Ähnliches}
+%\part*{Lektion 4: Listen-Abstraktion, Generatoren und Ähnliches}
 
 \section{Listen-Abstraktion/List-Comprehension}
 \begin{itemize}
@@ -16,50 +16,65 @@
 
 \subsection{Neue Liste aus einer bestehenden Liste ableiten}
 
-\subsubsection{Beispiel 1}
-\begin{multicols}{2}
+Beispiel 1:\\
+\begin{minipage}[t]{0.49\textwidth}
 	\textbf{konventionell:}
 	\lstinputlisting{listings/v4_list1.py}
-	\vfill\null
-	\columnbreak
+\end{minipage}
+\begin{minipage}[t]{0.02\textwidth} $ \quad $\end{minipage}
+\begin{minipage}[t]{0.49\textwidth}
 	\textbf{mit Listen-Abstraktion:}
 	\lstinputlisting{listings/v4_list2.py}
-	\vfill\null
-\end{multicols}
+\end{minipage}
 
-\subsubsection{Beispiel 2}
-\begin{multicols}{2}
+Beispiel 2:\\
+\begin{minipage}[t]{0.49\textwidth}
 	\textbf{konventionell:}
 	\lstinputlisting{listings/v4_list3.py}
-	\vfill\null
+\end{minipage}
+\begin{minipage}[t]{0.02\textwidth} $ \quad $\end{minipage}
+\begin{minipage}[t]{0.49\textwidth}
 	\textbf{mit Listen-Abstraktion:}
 	\lstinputlisting{listings/v4_list4.py}
-	\vfill\null
-\end{multicols}
+\end{minipage}
 
 \subsection{Bestehende Liste filtern}
 Beispiel: Nur Früchte behalten, deren Name mit A, B oder C beginnen.
 \lstinputlisting{listings/v4_list5.py}
 
 \subsection{Liste von Zahlen => formatierter String}
+
 \textbf{konventionell:}
 \lstinputlisting{listings/v4_list6.py}
 \textbf{mit Listen-Abstraktion:}
 \lstinputlisting{listings/v4_list7.py}
 
 \subsection{Liste der Schachbrettfelder}
-\textbf{konventionell:}
-\lstinputlisting{listings/v4_list8.py}
-\textbf{mit Listen-Abstraktion:}
-\lstinputlisting{listings/v4_list9.py}
+\begin{minipage}[t]{0.39\textwidth}
+	\textbf{konventionell:}
+	\lstinputlisting{listings/v4_list8.py}
+\end{minipage}
+\begin{minipage}[t]{0.02\textwidth} $ \quad $\end{minipage}
+\begin{minipage}[t]{0.59\textwidth}
+	\textbf{mit Listen-Abstraktion:}
+	\lstinputlisting{listings/v4_list9.py}
+\end{minipage}
+
 
 \subsection{Mengen-Abstraktion/Set Comprehension}
 
 \subsubsection{Produkte zweier Zahlen}
-\textbf{konventionell:}
-\lstinputlisting{listings/v4_list10.py}
-\textbf{mit Mengen-Abstraktion:}
-\lstinputlisting{listings/v4_list11.py}
+\begin{minipage}[t]{0.39\textwidth}
+	\textbf{konventionell:}
+	\lstinputlisting{listings/v4_list10.py}
+\end{minipage}
+\begin{minipage}[t]{0.02\textwidth} $ \quad $\end{minipage}
+\begin{minipage}[t]{0.59\textwidth}
+	\textbf{mit Mengen-Abstraktion:}
+	\lstinputlisting{listings/v4_list11.py}
+\end{minipage}
+
+
 
 \section{Iteratoren und Generatoren}
 \begin{itemize}

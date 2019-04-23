@@ -1,21 +1,24 @@
 modul = 'Python'    # globale Variable
 
 def anmeldung():
-    print(modul)    # Variable existiert bereits ausserhalb der Funktion
+	# Variable modul ist Global
+	print(modul)    
 
-anmeldung() # Ausgabe: Python
+anmeldung()							# Ausgabe: Python
 
 def wechseln():
-    modul = 'C++'   # erstellt eine neue lokale Variable
-    print('lokal:', modul)
+	# erstellt eine neue lokale Variable
+	modul = 'C++'   
+	print('lokal:', modul)
 
-wechseln()  # Ausgabe: lokal: C++
-print('global:', modul) # Ausgabe: global: Python
+wechseln()							# Ausgabe: lokal: C++
+print('global:', modul)	# Ausgabe: global: Python
 
 def wirklich_wechseln():
-    global modul    #referenzieren auf die globale Variable
-    modul = 'C++'
-    print('lokal:', modul)
+	# referenzieren auf die globale Variable
+	global modul    
+	modul = 'C++'
+	print('lokal:', modul)
 
-wirklich_wechseln()  # Ausgabe: lokal: C++
-print('global:', modul)   # Ausgabe: global: C++
+wirklich_wechseln()			# Ausgabe: lokal: C++
+print('global:', modul)	# Ausgabe: global: C++
