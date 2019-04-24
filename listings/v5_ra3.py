@@ -1,16 +1,9 @@
 m = re.search(r'[a-z]+', '123 hallo welt!')
 print(m)
-# Ausgabe: <re.Match object; span=(4, 9), match='hallo'>
+# <re.Match object; span=(4, 9), match='hallo'>
 
 if m is not None:
-    print('group:', m.group())
-    print('start:', m.start())
-    print('end:', m.end())
-    print('span:', m.span())
-else:
-    print('keine Uebereinstimmung')
-# Ausgabe:
-# group: hallo
-# start: 4
-# end: 9
-# span: (4, 9)
+    print('group:', m.group())  # group: hallo
+    print('start:', m.start())  # start: 4
+    print('end:', m.end())      # end: 9
+    print('span:', m.span())    # span: (4, 9)

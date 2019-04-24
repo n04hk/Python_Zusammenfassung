@@ -1,6 +1,6 @@
 %\part*{Lektion 4: Listen-Abstraktion, Generatoren und Ähnliches}
 
-\section{Listen-Abstraktion/List-Comprehension}
+\section[Listen-Abstraktion/List-Comprehension]{Listen-Abstraktion/List-Comprehension \tiny{Kap. 31}}
 \begin{itemize}
 	\item Einfache Methode, um Listen zu erzeugen
 	\begin{itemize}
@@ -76,7 +76,7 @@ Beispiel: Nur Früchte behalten, deren Name mit A, B oder C beginnen.
 
 
 
-\section{Iteratoren und Generatoren}
+\section[Iteratoren und Generatoren]{Iteratoren und Generatoren \tiny{Kap. 32}}
 \begin{itemize}
 	\item Iterator
 	\begin{itemize}
@@ -90,137 +90,158 @@ Beispiel: Nur Früchte behalten, deren Name mit A, B oder C beginnen.
 	\end{itemize}
 \end{itemize}
 
-\subsection{Iteratoren}
-Iteratoren werden benutzt, um über einen Container zu iterieren.\\
-Die for-SChleife erzeugt aus dem Listen-Objekt einen Iterator:
-\lstinputlisting{listings/v4_iter1.py}
-Das Container-Objekt muss die \texttt{\_\_iter\_\_()}-Funktion implementieren:
-\lstinputlisting{listings/v4_iter2.py}
-Iterator aus Liste erzeugen:
-\lstinputlisting{listings/v4_iter3.py}
-Ein Iterator muss auch die \texttt{\_\_next\_\_()}-Funktion implementieren:
+\begin{minipage}[t]{0.59\textwidth}
+	\subsection{Iteratoren}
+	Iteratoren werden benutzt, um über einen Container zu iterieren.\\
+	Die for-Schleife erzeugt aus dem Listen-Objekt einen Iterator:
+\end{minipage}
+\begin{minipage}[t]{0.02\textwidth} $ \quad $\end{minipage}
+\begin{minipage}[t]{0.39\textwidth}
+	\lstinputlisting{listings/v4_iter1.py}
+\end{minipage}
+
+Ein Iterator muss auch die \texttt{\_\_next\_\_()}-Funktion implementieren. Das nächste Element kann dann mit \texttt{next()} extrahiert werden.\\
+Beispiel:
 \lstinputlisting{listings/v4_iter4.py}
-Das nächste Element kann mit \texttt{next()} extrahiert werden:
-\lstinputlisting{listings/v4_iter5.py}
-... bis kein Element drin ist => \texttt{StopIteration}-Exception
-\lstinputlisting{listings/v4_iter6.py}
 
-\subsection{Generatoren}
-Ein Generator ist auch ein Iterator.\\
-Ein Generator wird erstellt, indem man eine Funktion aufruft, die eine oder mehrere \texttt{yield}-Answeisungen hat:
-\lstinputlisting{listings/v4_iter7.py}
-Bei der \texttt{yield}-Anweisung wird die Funktion (wie mit return) verlassen, aber Python merkt sich
-\begin{itemize}
-	\item den Zustand der lokalen Variable
-	\item und wo der Generator verlassen wurde.
-\end{itemize}
-\lstinputlisting{listings/v4_iter8.py}
+\begin{minipage}[t]{0.44\textwidth}
+	\subsection{Generatoren}
+	Ein Generator ist auch ein Iterator.\\
+	Ein Generator wird erstellt, indem man eine Funktion aufruft, die eine oder mehrere \texttt{yield}-Answeisungen hat.\\
+	Bei der \texttt{yield}-Anweisung wird die Funktion (wie mit return) verlassen, aber Python merkt sich den Zustand der lokalen Variable und wo der Generator verlassen wurde.
+\end{minipage}
+\begin{minipage}[t]{0.02\textwidth} $ \quad $\end{minipage}
+\begin{minipage}[t]{0.54\textwidth}
+	\lstinputlisting{listings/v4_iter7.py}
+\end{minipage}
 
-\subsubsection{Generator-Expression}
-Ein Generator kann auch mit einem Ausdruck definiert werden:
-\lstinputlisting{listings/v4_iter9.py}
+\begin{minipage}[t]{0.44\textwidth}
+		\subsubsection{Generator-Expression}
+	Ein Generator kann auch mit einem Ausdruck definiert werden:
+\end{minipage}
+\begin{minipage}[t]{0.02\textwidth} $ \quad $\end{minipage}
+\begin{minipage}[t]{0.54\textwidth}
+	\lstinputlisting{listings/v4_iter9.py}
+\end{minipage}
+
+
 
 \subsubsection{\texttt{send()}-Methode, Generator als Coroutine}
 Die \texttt{send()}-Methode verhält sich im Prinzip wie die \texttt{next()}-Methode, aber sendet gleichzeitig noch einen Wert an den Generator:
+
 \lstinputlisting{listings/v4_iter10.py}
 
-\section{Listen und Tupel im Detail}
-\begin{itemize}
-	\item Tupel
+\section[Listen und Tupel im Detail]{Listen und Tupel im Detail \tiny{Kap. 16}}
+\begin{minipage}[t]{0.49\textwidth}
+	
 	\begin{itemize}
-		\item Packing
-		\item Unpacking
+		\item Tupel
+		\begin{itemize}
+			\item Packing
+			\item Unpacking
+		\end{itemize}
+		\item Listen
+		\begin{itemize}
+			\item Elemente hinzufügen
+			\item Sortieren
+		\end{itemize}
 	\end{itemize}
-	\item Listen
-	\begin{itemize}
-		\item Elemente hinzufügen
-		\item Sortieren
-	\end{itemize}
-\end{itemize}
+\end{minipage}
+\begin{minipage}[t]{0.02\textwidth} $ \quad $\end{minipage}
+\begin{minipage}[t]{0.49\textwidth}
+	\subsection{Tupel}
+	\lstinputlisting{listings/v4_tupel1.py}
+\end{minipage}
 
-\subsection{Tupel}
-Leeres Tupel:
-\lstinputlisting{listings/v4_tupel1.py}
-Tupel mit einem Element:
-\lstinputlisting{listings/v4_tupel2.py}
-Mehrfachzuweisung:
-\lstinputlisting{listings/v4_tupel3.py}
-\begin{multicols}{2}
+\begin{minipage}[t]{0.49\textwidth}
 	Packing:
 	\lstinputlisting{listings/v4_tupel4.py}
-	\columnbreak
+\end{minipage}
+\begin{minipage}[t]{0.02\textwidth} $ \quad $\end{minipage}
+\begin{minipage}[t]{0.49\textwidth}
 	Unpacking:
 	\lstinputlisting{listings/v4_tupel5.py}
-	\vfill\null
-\end{multicols}
+\end{minipage}
 Packing mit Rest:
 \lstinputlisting{listings/v4_tupel6.py}
 
 \subsection{Listen}
 
-\subsubsection{Element hinzufügen}
-\lstinputlisting{listings/v4_tupel7.py}
+\begin{minipage}[t]{0.49\textwidth}
+	\subsubsection{Element hinzufügen}
+	\lstinputlisting{listings/v4_tupel7.py}
+	\subsubsection{Elemente ersetzen}
+	\lstinputlisting{listings/v4_tupel10.py}
+\end{minipage}
+\begin{minipage}[t]{0.02\textwidth} $ \quad $\end{minipage}
+\begin{minipage}[t]{0.49\textwidth}
+	\subsubsection{Mehrere Elemente hinzufügen}
+	\lstinputlisting{listings/v4_tupel8.py}
+	Mehrere Elemente zwischendrin einfügen:
+	\lstinputlisting{listings/v4_tupel9.py}
+\end{minipage}
 
-\subsubsection{Mehrere Elemente hinzufügen}
-\lstinputlisting{listings/v4_tupel8.py}
-Mehrere Elemente zwischendrin einfügen:
-\lstinputlisting{listings/v4_tupel9.py}
-
-\subsubsection{Elemente ersetzen}
-\lstinputlisting{listings/v4_tupel10.py}
-Einzelnes Element:
-\lstinputlisting{listings/v4_tupel11.py}
-Einen ganzen Bereich:
-\lstinputlisting{listings/v4_tupel12.py}
 
 \subsubsection{Element entfernen}
 \lstinputlisting{listings/v4_tupel13.py}
 
-\subsection{Sortieren}
-\texttt{sorted()} liefert eine neue sortierte Liste zurück:
-\lstinputlisting{listings/v4_tupel14.py}
-\texttt{sort()} modifiziert die Liste selbst (In-Place-Sortierung):
-\lstinputlisting{listings/v4_tupel15.py}
 
-\subsubsection{Umgekehrte Reihenfolge}
-\lstinputlisting{listings/v4_tupel16.py}
+\begin{minipage}[t]{0.49\textwidth}
+	\subsection{Sortieren}
+	\texttt{sorted()} liefert eine neue sortierte Liste zurück:
+	\lstinputlisting{listings/v4_tupel14.py}
+	\texttt{sort()} modifiziert die Liste selbst (In-Place-Sortierung):
+	\lstinputlisting{listings/v4_tupel15.py}
+\end{minipage}
+\begin{minipage}[t]{0.02\textwidth} $ \quad $\end{minipage}
+\begin{minipage}[t]{0.49\textwidth}
+	\subsubsection{Umgekehrte Reihenfolge}
+	\lstinputlisting{listings/v4_tupel16.py}
+	
+	\subsubsection{Mit spezieller Funktion}
+	\lstinputlisting{listings/v4_tupel17.py}
+\end{minipage}
 
-\subsubsection{Mit spezieller Funktion}
-\lstinputlisting{listings/v4_tupel17.py}
 
 \subsubsection{\texttt{collections.deque}}
-Falls ein Stack oder FIFO-Buffer mit folgenden Eigenschaften benötigt wird:
-\begin{itemize}
-	\item Thread-sicher
-	\item Speicher-optimiert
-	\item schnell
-\end{itemize}
+Falls ein Stack oder FIFO-Buffer mit folgenden Eigenschaften benötigt wird:\\
+$\bullet$ Thread-sicher $\quad \bullet$ Speicher-optimiert $\quad \bullet$ schnell\\
 \url{https://docs.python.org/3/library/collections.html#collections.deque}
 \lstinputlisting{listings/v4_tupel18.py}
 
-\section{lambda, map, filter und reduce}
-\begin{itemize}
-	\item lambda
+\begin{minipage}[t]{0.49\textwidth}
+	\section[lambda, map, filter und reduce]{lambda, map, filter und reduce \tiny{Kap. 30}}
 	\begin{itemize}
-		\item anonyme Funktionen bauen
+		\item lambda
+		\begin{itemize}
+			\item anonyme Funktionen bauen
+		\end{itemize}
+		\item map, filter und reduce
+		\begin{itemize}
+			\item Für die funktionale Programmierung
+			\item auch mit List Comprehension möglich
+		\end{itemize}
 	\end{itemize}
-	\item map, filter und reduce
-	\begin{itemize}
-		\item Hilfsmittel für die funktionale Programmierung
-		\item auch mit List Comprehension möglich
-	\end{itemize}
-\end{itemize}
+\end{minipage}
+\begin{minipage}[t]{0.02\textwidth} $ \quad $\end{minipage}
+\begin{minipage}[t]{0.49\textwidth}
+	\subsection{lambda}
+	\texttt{lambda} definiert eine anonyme Funktionen.
+	\lstinputlisting{listings/v4_tupel19.py}
+\end{minipage}
 
-\subsection{lambda}
-Mit \texttt{lambda} können anonyme Funktionen definiert werden.
-\lstinputlisting{listings/v4_tupel19.py}
 
 \subsection{map}
-sequenz = map(funktion, sequenz)\\
-Wendet die Funktion auf alle Elemente der Sequenz an und gibt die Resultate als Sequenz zurück.
-\lstinputlisting{listings/v4_tupel20.py}
-Funktion mit zwei Parametern benötigt zwei Listen:
-\lstinputlisting{listings/v4_tupel21.py}
+\begin{minipage}[t]{0.49\textwidth}
+	sequenz = map(funktion, sequenz)\\
+	Wendet die Funktion auf alle Elemente der Sequenz an und gibt die Resultate als Sequenz zurück.
+	\lstinputlisting{listings/v4_tupel20.py}
+\end{minipage}
+\begin{minipage}[t]{0.02\textwidth} $ \quad $\end{minipage}
+\begin{minipage}[t]{0.49\textwidth}
+	Funktion mit zwei Parametern benötigt zwei Listen:
+	\lstinputlisting{listings/v4_tupel21.py}
+\end{minipage}
 
 \subsection{filter}
 sequenz = filter(funktion, sequenz)\\
