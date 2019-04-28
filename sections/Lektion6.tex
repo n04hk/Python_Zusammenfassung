@@ -1,26 +1,54 @@
-\part*{Lektion 6: Klassen}
-\section{Klassen}
-\begin{itemize}
-	\item Die Klassendefinition beginnt mit dem Schlüsselwort \texttt{class}
-\end{itemize}
-\lstinputlisting{listings/v6_klassen1.py}
-\begin{itemize}
-	\item Eine Klasse mit Variablen und Methoden:
-\end{itemize}
-\lstinputlisting{listings/v6_klassen2.py}
+%\part*{Lektion 6: Klassen}
 
-\subsection{Einfache Klasse definieren}
-\lstinputlisting{listings/v6_klassen3.py}
+\begin{minipage}[t]{0.59\textwidth}
+	\section{Klassen}
+	Die Klassendefinition beginnt mit dem Schlüsselwort \texttt{class}
+\end{minipage}
+\begin{minipage}[t]{0.02\textwidth} $\quad$ \end{minipage}
+\begin{minipage}[t]{0.39\textwidth}
+	\lstinputlisting{listings/v6_klassen1.py}
+\end{minipage}
 
-\subsection{Klasse instanzieren}
-\lstinputlisting{listings/v6_klassen4.py}
+\begin{minipage}[t]{0.59\textwidth}
+	$\quad$\\[40pt]
+	Eine Klasse mit Variablen und Methoden:
+\end{minipage}\begin{minipage}[t]{0.02\textwidth}\end{minipage}
+\begin{minipage}[t]{0.39\textwidth}
+	\lstinputlisting{listings/v6_klassen2.py}
+\end{minipage}
 
-\subsection{Klassen- und Instanz-Variablen}
-\lstinputlisting{listings/v6_klassen5.py}
-Die Daten einer \textbf{Klassen-Variable} sind für alle Klassen-Objekte gleich.
-\lstinputlisting{listings/v6_klassen6.py}
-Die Daten einer \textbf{Instanz-Variable} sind für jedes Klassen-Objekt individuell.
-\lstinputlisting{listings/v6_klassen7.py}
+\begin{minipage}[t]{0.49\textwidth}
+	\subsection{Einfache Klasse definieren}
+	\lstinputlisting{listings/v6_klassen3.py}
+\end{minipage}
+\begin{minipage}[t]{0.02\textwidth} $\quad$ \end{minipage}
+\begin{minipage}[t]{0.49\textwidth}
+	\subsection{Klasse instanzieren}
+	\lstinputlisting{listings/v6_klassen4.py}
+\end{minipage}
+
+
+\begin{minipage}[t]{0.49\textwidth}
+	\subsection{Klassen- und Instanz-Variablen}
+	\lstinputlisting{listings/v6_klassen5.py}
+\end{minipage}
+\begin{minipage}[t]{0.02\textwidth} $\quad$ \end{minipage}
+\begin{minipage}[t]{0.49\textwidth}
+	Die Daten einer \textbf{Klassen-Variable} sind für alle Klassen-Objekte gleich.
+	\lstinputlisting{listings/v6_klassen6.py}
+\end{minipage}\\[12pt]
+
+\begin{minipage}[t]{0.49\textwidth}
+	Die Daten einer \textbf{Instanz-Variable} sind für jedes Klassen-Objekt individuell.
+	\lstinputlisting{listings/v6_klassen7.py}
+\end{minipage}
+\begin{minipage}[t]{0.02\textwidth} $\quad$ \end{minipage}
+\begin{minipage}[t]{0.49\textwidth}
+	\textbf{Achtung:} bei gleichem Name haben die Instanz-Variablen Vorrang.
+	\lstinputlisting{listings/v6_klassen8.py}
+\end{minipage}
+
+
 \textbf{Achtung:} bei gleichem Name haben die Instanz-Variablen Vorrang.
 \lstinputlisting{listings/v6_klassen8.py}
 
@@ -37,30 +65,57 @@ Unterschiede zwischen Methoden und einer gewöhnlichen Funktion:
 	\item Eine Variable, z.B. \texttt{speed\_of\_light}, die ausserhalb einer Methode erstellt wird, ist automatisch eine Klassen-Variable.
 \end{itemize}
 
-\subsubsection{\texttt{\_\_init\_\_()}-Methode}
-Sie dient zur Initialisierung der Instanz. Sie wird unmittelbar nach dem Konstruktor aufgerufen.
-\lstinputlisting{listings/v6_klassen10.py}
-\textbf{Dringend empfohlen:} alle Instanz-Variablen in der \texttt{\_\_init\_\_()}-Methode initialisieren.
 
-\subsubsection{\texttt{\_\_del\_\_()}-Methode}
-Sie wird aufgerufen, bevor die Instanz zerstört wird.
-\lstinputlisting{listings/v6_klassen11.py}
-\textbf{Hinweis:} Das Objekt selber wird vom Garbage Collector entfernt, sobald keine Referenzen mehr darauf zeigen.
+\begin{minipage}[t]{0.49\textwidth}
+	\subsubsection{\texttt{\_\_init\_\_()}-Methode}
+	Sie dient zur Initialisierung der Instanz. Sie wird unmittelbar nach dem Konstruktor aufgerufen.\\
+	\textbf{Dringend empfohlen:} alle Instanz-Variablen in der \texttt{\_\_init\_\_()}-Methode initialisieren.
+\end{minipage}
+\begin{minipage}[t]{0.02\textwidth} $\quad$ \end{minipage}
+\begin{minipage}[t]{0.49\textwidth}
+	\lstinputlisting{listings/v6_klassen10.py}
+\end{minipage}\\[12pt]
+
+\begin{minipage}[t]{0.49\textwidth}
+	\subsubsection{\texttt{\_\_del\_\_()}-Methode}
+	Sie wird aufgerufen, bevor die Instanz zerstört wird.\\
+	\textbf{Hinweis:} Das Objekt selber wird vom Garbage Collector entfernt, sobald keine Referenzen mehr darauf zeigen.
+\end{minipage}
+\begin{minipage}[t]{0.02\textwidth} $\quad$ \end{minipage}
+\begin{minipage}[t]{0.49\textwidth}
+	\lstinputlisting{listings/v6_klassen11.py}
+\end{minipage}
+
 
 \subsubsection{Methoden aufrufen}
-Der \textbf{\texttt{self}}-Parameter wird beim Aufruf nicht angegeben.
-\lstinputlisting{listings/v6_klassen12.py}
-Python bindet alle Methoden automatisch an die Instanz.
-\lstinputlisting{listings/v6_klassen13.py}
+\begin{minipage}[t]{0.49\textwidth}
+	Der \textbf{\texttt{self}}-Parameter wird beim Aufruf nicht angegeben.
+	\lstinputlisting{listings/v6_klassen12.py}
+\end{minipage}
+\begin{minipage}[t]{0.02\textwidth} $\quad$ \end{minipage}
+\begin{minipage}[t]{0.49\textwidth}
+	Python bindet alle Methoden an die Instanz.
+	\lstinputlisting{listings/v6_klassen13.py}
+\end{minipage}
 Grundsätzlich entspricht dies dem folgenden Aufruf:
 \lstinputlisting{listings/v6_klassen14.py}
 
+
+
 \subsubsection{Statische Methoden}
 Sie sind nicht an eine Instanz gebunden, d.h. sie benötigen keinen \texttt{self}-Parameter.\\
-Variante 1:
-\lstinputlisting{listings/v6_klassen15.py}
-Variante 2 mit Dekorateur:
-\lstinputlisting{listings/v6_klassen16.py}
+
+\begin{minipage}[t]{0.49\textwidth}
+	Variante 1:
+	\lstinputlisting{listings/v6_klassen15.py}
+\end{minipage}
+\begin{minipage}[t]{0.02\textwidth} $\quad$ \end{minipage}
+\begin{minipage}[t]{0.49\textwidth}
+	Variante 2 mit Dekorateur:
+	\lstinputlisting{listings/v6_klassen16.py}
+\end{minipage}
+
+
 
 \subsubsection{Klassen-Methoden}
 Sie sind an eine Klasse gebunden.

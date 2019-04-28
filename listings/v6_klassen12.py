@@ -1,5 +1,3 @@
-s = MeineKlasse('Wall-E')  # name='Wall-E'
-s.hallo()
-# Ausgabe:
-# Wall-E wurde erstellt.
-# Hallo Wall-E
+s = MeineKlasse('Wall-E')  
+# Ausgabe: Wall-E wurde erstellt.
+s.hallo()  # Ausgabe: # Hallo Wall-E

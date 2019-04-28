@@ -1,5 +1,7 @@
 class MeineKlasse:
-    speed_of_light = 299792458  # Klassen-Variable
+    # Klassen-Variable
+	speed_of_light = 299792458
 
     def __init__(self):
-        self.name = 'unbekannt'  # Instanz-Variable
+		# Instanz-Variable
+        self.name = 'unbekannt'  

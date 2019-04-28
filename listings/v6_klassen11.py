@@ -1,2 +1,2 @@
-del s  # loescht nur die Referenz s auf das Objekt.
+del s  # loescht die Referenz auf das Objekt.
 # Ausgabe: Wall-E wurde zerstoert.
