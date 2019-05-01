@@ -8,9 +8,9 @@ class Bank:
 
     def set_guthaben(self, n):
         self.__guthaben = n
-        print('Das Guthaben wurde auf {} geaendert.'.format(self.__guthaben))
+        print('Neues Guthaben: {}.'.format(self.__guthaben))
 
 k = Bank()
-k.set_guthaben(1000000) # Ausgabe: Das Guthaben wurde auf 1000000 geaendert.
+k.set_guthaben(1000000) # Ausgabe: Neues Guthaben 1000000.
 print(k.get_guthaben()) # Ausgabe: Das Guthaben wurde abgefragt.
 # Ausgabe: 1000000

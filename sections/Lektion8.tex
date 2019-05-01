@@ -1,4 +1,3 @@
-\part*{Lektion 8: NumPy und Matplotlib}
 \section{NumPy}
 \begin{itemize}
 	\item Python-Bibliothek
@@ -49,53 +48,57 @@
 	\end{tabular} 
 \end{itemize}
 
-\subsubsection{ndarray-Datentypen}
-\begin{itemize}
-	\item Datentyp wird automatisch ermittelt,\\
-	z.B. \texttt{np.int64} oder \texttt{np.float64}
-	\item Datentyp erzwingen\\
-	\texttt{np.array([1, 2, 3], dtype=np.complex)}
-	\item Mögliche Datentypen\\
-	\begin{tabular}{|l|l|}
-		\hline 
-		\texttt{np.int8, np.uint8} &8-Bit Ganzzahlen\\ 
-		\texttt{np.int16, np.uint16} &16-Bit Ganzzahlen\\ 
-		\texttt{np.int32, np.uint32} &32-Bit Ganzzahlen\\ 
-		\texttt{np.int64, np.uint64} &64-Bit Ganzzahlen\\ 
-		\texttt{np.float16} &Float mit halber Genauigkeit\\ 
-		\texttt{np.float32} &Float mit einfacher Genauigkeit\\ 
-		\texttt{np.float64} &Float mit doppelter Genauigkeit\\ 
-		\texttt{np.float128} &Float mit vierfacher Genauigkeit\\  
-		\texttt{np.complex64/128/256} &Komplexe Zahl\\ 
-		\texttt{np.bool} &Boolescher Wert, True/False\\ 
-		\hline 
-	\end{tabular} 
-\end{itemize}
+\begin{minipage}[t]{0.54\textwidth}
+	\subsubsection{ndarray-Datentypen}
+	\begin{itemize}
+		\item Datentyp wird automatisch ermittelt,\\
+		z.B. \texttt{np.int64} oder \texttt{np.float64}
+		\item Datentyp erzwingen\\
+		\texttt{np.array([1, 2, 3], dtype=np.complex)}
+		\item Mögliche Datentypen\\
+	\end{itemize}
 
-\subsection{Arithmetische Operationen}
-\begin{itemize}
-	\item Arithmetische Operationen werden elementweise ausgeführt\\
-	\lstinputlisting{listings/v8_numpy2.py}
-	\begin{tabular}{|l|l|}
-		\hline
-		\textbf{Operation} &\textbf{Resultat}\\
-		\hline
-		\texttt{arr + arr} &\texttt{array([2., 4., 6.])}\\
-		\texttt{arr + 1} &\texttt{array([2., 3., 4.])}\\
-		\texttt{arr - arr} &\texttt{array([0., 0., 0.])}\\
-		\texttt{arr - 1} &\texttt{array([0., 1., 2.])}\\
-		\texttt{arr*arr} &\texttt{array([1., 4., 9.])}\\
-		\texttt{arr*2} &\texttt{array([2., 4., 6.])}\\
-		\texttt{arr/arr} &\texttt{array([1., 1., 1.])}\\
-		\texttt{arr/2} &\texttt{array([0.5, 1., 1.5])}\\
-		\texttt{arr**2} &\texttt{array([1., 4., 9.])}\\
-		\texttt{arr > 2} &\texttt{array([False, False, True], dtype=bool)}\\
-		\hline
-	\end{tabular}
-\end{itemize}
+\begin{tabular}{|l|l|}
+	\hline 
+	\texttt{np.int8, np.uint8} &8-Bit Ganzzahlen\\ 
+	\texttt{np.int16, np.uint16} &16-Bit Ganzzahlen\\ 
+	\texttt{np.int32, np.uint32} &32-Bit Ganzzahlen\\ 
+	\texttt{np.int64, np.uint64} &64-Bit Ganzzahlen\\ 
+	\texttt{np.float16} &Float mit 1/2 Genauigkeit\\ 
+	\texttt{np.float32} &Float mit normaler Genauigkeit\\ 
+	\texttt{np.float64} &Float mit 2-Facher Genauigkeit\\ 
+	\texttt{np.float128} &Float mit 4-Facher Genauigkeit\\  
+	\texttt{np.complex64/128/256} &Komplexe Zahl\\ 
+	\texttt{np.bool} &Boolescher Wert, True/False\\ 
+	\hline 
+\end{tabular} 
 
-\vfill\null
-\pagebreak
+\end{minipage}
+\hspace{0.02\textwidth}
+\begin{minipage}[t]{0.44\textwidth}
+	\subsection{Arithmetische Operationen}
+	\begin{itemize}
+		\item Arithmetische Operationen werden elementweise ausgeführt\\
+	\end{itemize}
+\lstinputlisting{listings/v8_numpy2.py}
+\begin{tabular}{|l|l|}
+	\hline
+	\textbf{Operation} &\textbf{Resultat}\\
+	\hline
+	\texttt{arr + arr} &\texttt{array([2., 4., 6.])}\\
+	\texttt{arr + 1} &\texttt{array([2., 3., 4.])}\\
+	\texttt{arr - arr} &\texttt{array([0., 0., 0.])}\\
+	\texttt{arr - 1} &\texttt{array([0., 1., 2.])}\\
+	\texttt{arr*arr} &\texttt{array([1., 4., 9.])}\\
+	\texttt{arr*2} &\texttt{array([2., 4., 6.])}\\
+	\texttt{arr/arr} &\texttt{array([1., 1., 1.])}\\
+	\texttt{arr/2} &\texttt{array([0.5, 1., 1.5])}\\
+	\texttt{arr**2} &\texttt{array([1., 4., 9.])}\\
+	\texttt{arr > 2} &\texttt{array([False, False, True],} \\ &\texttt{dtype=bool)}\\
+	\hline
+\end{tabular}
+\end{minipage}
+
 \subsection{Indexierung}
 \begin{multicols}{2}
 	\begin{itemize}
@@ -141,55 +144,43 @@ $\rightarrow$ \texttt{ndim} bleibt erhalten, falls bei jeder \texttt{axis} ein $
 \end{itemize}
 $\rightarrow$ Bedingung: letzte Dimension ist gleich oder nur 1 lang.
 
+\pagebreak
 \subsection{Mathematische Funktionen}
-\begin{itemize}
-	\item NumPy beinhaltet viele mathematische Funktionen:\\
-	\url{https://docs.scipy.org/doc/numpy/reference/routines.math.html}
-	\begin{itemize}
-		\item \texttt{np.sin()}
-		\item \texttt{np.cos()}
-		\item \texttt{np.exp()}
-		\item \texttt{np.cumsum()}
-		\item ...
-	\end{itemize}
-	\item Diese Funktionen operieren über das gesamte Array
-	\lstinputlisting{listings/v8_numpy9.py}
-\end{itemize}
+NumPy beinhaltet viele mathematische Funktionen:\\
+\url{https://docs.scipy.org/doc/numpy/reference/routines.math.html}\\
+- \texttt{np.sin()}
+$\quad$- \texttt{np.cos()}
+$\quad$- \texttt{np.exp()}
+$\quad$- \texttt{np.cumsum()}
+$\quad$- ...\\
+Diese Funktionen operieren über das gesamte Array
+\lstinputlisting{listings/v8_numpy9.py}
 
 \subsubsection{Lineare Algebra}
-\begin{itemize}
-	\item Liste der Funktionen:\\
-	\url{https://docs.scipy.org/doc/numpy/reference/routines.linalg.html}
-	\item Matrix definieren
+Liste der Funktionen:\\
+\url{https://docs.scipy.org/doc/numpy/reference/routines.linalg.html}\\[12pt]
+\begin{minipage}[t]{0.49\textwidth}
+	Matrix definieren
 	\lstinputlisting{listings/v8_numpy14.py}
-	\item Vektor definieren
+\end{minipage}
+\hspace{0.02\textwidth}
+\begin{minipage}[t]{0.49\textwidth}
+	Vektor definieren
 	\lstinputlisting{listings/v8_numpy15.py}
-	\item Matrix \textbf{M} mit Vektor \textbf{v} multiplizieren
+\end{minipage}\\[12pt]
+	
+\begin{minipage}[t]{0.49\textwidth}
+	Matrix \textbf{M} mit Vektor \textbf{v} multiplizieren
 	\lstinputlisting{listings/v8_numpy10.py}
-	\item Matrix transponieren \textbf{M$^T$}
-	\lstinputlisting{listings/v8_numpy11.py}
-	\item Matrix invertieren \textbf{M$^{-1}$}
-	\lstinputlisting{listings/v8_numpy12.py}
-	\item Shape eines Vektors ändern
+	%$\quad$\\[6pt]
+	Shape eines Vektors ändern
 	\lstinputlisting{listings/v8_numpy16.py}
-\end{itemize}
-
-\subsubsection{Matplotlib}
-\begin{itemize}
-	\item Python-Bibliothek\\
-	\texttt{import matplotlib.pyplot as plt}
-	\item Erstellen von publizierbaren Diagrammen und Darstellungen
-	\item 100\% kompatibel zu NumPy-Arrays
-	\item MATLAB\textsuperscript{\textregistered}-ähnliche Funktionen:\\
-	\url{https://matplotlib.org/api/_as_gen/matplotlib.pyplot.html}
-	\item Kann auch objekt-orientiert verwendet werden, z.B. in GUIs
-	\item Grosse Beispiel-Sammlung:\\
-	\url{https://matplotlib.org/gallery/index.html}
-	\item Einfaches Beispiel:
-\end{itemize}
-\begin{multicols}{2}
-	\lstinputlisting{listings/v8_numpy13.py}
-	\vfill\null
-	\columnbreak
-	\includegraphics[width=\linewidth]{images/v8_numpy6}
-\end{multicols}
+\end{minipage}
+\hspace{0.02\textwidth}
+\begin{minipage}[t]{0.49\textwidth}
+	Matrix transponieren \textbf{M$^T$}
+	\lstinputlisting{listings/v8_numpy11.py}
+	$\quad$\\[12pt]
+	Matrix invertieren \textbf{M$^{-1}$}
+	\lstinputlisting{listings/v8_numpy12.py}
+\end{minipage}

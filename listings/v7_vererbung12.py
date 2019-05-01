@@ -20,9 +20,10 @@ class Tesla(Fahrzeug, Computer):
         )
         self.dual_motor = dual_motor
 
-
-t = Tesla(display='17 Zoll', dual_motor=True) # Ausgabe:
+t = Tesla(display='17 Zoll', dual_motor=True) 
+# Ausgabe:
 # Tesla.__init__()
 # Fahrzeug.__init__(), kwargs = {'display': '17 Zoll'}
 # Computer.__init__(), kwargs = {}
-t.__dict__ # Ausgabe: {'display': '17 Zoll', 'antrieb': 'elektrisch', 'dual_motor': True}
+t.__dict__ 
+# Ausgabe: {'display': '17 Zoll', 'antrieb': 'elektrisch', 'dual_motor': True}

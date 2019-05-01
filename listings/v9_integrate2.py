@@ -1,3 +1,5 @@
+import numpy as np
+import matplotlib.pyplot as plt
 from scipy.integrate import trapz
 
 x = np.array([0, 1, 1.5, 1.8, 2, 3, 4, 5])

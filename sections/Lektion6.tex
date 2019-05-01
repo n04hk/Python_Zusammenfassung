@@ -1,7 +1,7 @@
 %\part*{Lektion 6: Klassen}
 
 \begin{minipage}[t]{0.59\textwidth}
-	\section{Klassen}
+	\section[Klassen]{Klassen \tiny{Kap. 21}}
 	Die Klassendefinition beginnt mit dem Schlüsselwort \texttt{class}
 \end{minipage}
 \begin{minipage}[t]{0.02\textwidth} $\quad$ \end{minipage}
@@ -122,32 +122,51 @@ Sie sind an eine Klasse gebunden.
 Variante 1:
 \lstinputlisting{listings/v6_klassen17.py}
 
-\subsection{Datenabstraktion}
-\begin{itemize}
-	\item Datenabstraktion = Datenkapselung + Geheimnisprinzip
-	\item Datenkapselung (Zugriff kontrollieren)
-	\begin{itemize}
-		\item Setter- und Getter-Methoden
-		\item[\-] \texttt{set\_variable(value), get\_variable()}
-	\end{itemize}
-	\item Geheimnisprinzip (interne Information verstecken)
-	\begin{itemize}
-		\item \texttt{public}
-		\item \texttt{protected}
-		\item \texttt{private}
-	\end{itemize}
-\end{itemize}
-Der Zugang zu den Instanz-Attributen (Variablen und Methoden) sind in drei Stufen definiert: \textbf{\texttt{public}}, \textbf{\texttt{protected}} und \textbf{\texttt{private}}.\\
-\textbf{Hinweis:} Das ist alles nur eine Konvention. In Python gibt es keinen Datenschutz.
-\lstinputlisting{listings/v6_klassen18.py}
 
-\subsubsection{Public}
-Attribute ohne führende Unterstriche im Namen sind als \textbf{\texttt{public}} zu betrachten. Man kann und darf auch von ausserhalb der Klasse darauf zugreifen.
-\lstinputlisting{listings/v6_klassen19.py}
+\begin{minipage}[t]{0.49\textwidth}
+	\subsection{Datenabstraktion}
+	\begin{itemize}
+		\item Datenabstraktion = Datenkapselung + Geheimnisprinzip
+		\item Datenkapselung (Zugriff kontrollieren)
+		\begin{itemize}
+			\item Setter- und Getter-Methoden
+			\item[\-] \texttt{set\_variable(value), get\_variable()}
+		\end{itemize}
+		\item Geheimnisprinzip (interne Information verstecken)
+		\begin{itemize}
+			\item \texttt{public}
+			\item \texttt{protected}
+			\item \texttt{private}
+		\end{itemize}
+	\end{itemize}
+	Der Zugang zu den Instanz-Attributen (Variablen und Methoden) sind in drei Stufen definiert: \textbf{\texttt{public}}, \textbf{\texttt{protected}} und \textbf{\texttt{private}}.\\
+	\textbf{Hinweis:} Das ist alles nur eine Konvention. In Python gibt es keinen Datenschutz.
+\end{minipage}
+\begin{minipage}[t]{0.02\textwidth} $\quad$ \end{minipage}
+\begin{minipage}[t]{0.49\textwidth}
+	\lstinputlisting{listings/v6_klassen18.py}
+\end{minipage}\\[12pt]
 
-\subsubsection{Protected}
-Attribute mit einem führenden Unterstrich im Namen sind als \textbf{\texttt{protected}} zu betrachten, d.h. man könnte theoretisch von aussen darauf zugreifen, man sollte aber nicht, es ist unerwünscht. Sie werden v.a. bei Vererbungen wichtig.
-\lstinputlisting{listings/v6_klassen20.py}
+
+\begin{minipage}[t]{0.49\textwidth}
+	\subsubsection{Public}
+	Attribute ohne führende Unterstriche im Namen sind als \textbf{\texttt{public}} zu betrachten. Man kann und darf auch von ausserhalb der Klasse darauf zugreifen.
+\end{minipage}
+\begin{minipage}[t]{0.02\textwidth} $\quad$ \end{minipage}
+\begin{minipage}[t]{0.49\textwidth}
+	\lstinputlisting{listings/v6_klassen19.py}
+\end{minipage}
+
+\begin{minipage}[t]{0.49\textwidth}
+	\subsubsection{Protected}
+	Attribute mit einem führenden Unterstrich im Namen sind als \textbf{\texttt{protected}} zu betrachten, d.h. man könnte theoretisch von aussen darauf zugreifen, man sollte aber nicht, es ist unerwünscht. Sie werden v.a. bei Vererbungen wichtig.
+\end{minipage}
+\begin{minipage}[t]{0.02\textwidth} $\quad$ \end{minipage}
+\begin{minipage}[t]{0.49\textwidth}
+	\lstinputlisting{listings/v6_klassen20.py}
+\end{minipage}
+
+
 
 \subsubsection{Private}
 Attribute mit zwei führenden Unterstrichen im Namen sind \textbf{\texttt{private}}. Sie sind von aussen nicht sichtbar.
@@ -156,15 +175,38 @@ Im Prinzip gibt es einen Umweg um dies zu umgehen. \textbf{Achtung:} höchst ill
 \lstinputlisting{listings/v6_klassen22.py}
 
 \subsubsection{Setter- und Getter-Methoden}
-Setter- und Getter-Methoden für private Instanz-Variablen auf phytonsche Art und Weise implementieren.\\
-\textbf{Konventionell:} Set- und Get-Methoden explizit benutzen.
-\lstinputlisting{listings/v6_klassen23.py}
-\textbf{Property:} Von aussen wie auf eine öffentliche Variable zugreifen, Set- und Get-Methoden werden implizit aufgerufen.\\
-\url{https://docs.python.org/3/library/functions.html#property}
-\lstinputlisting{listings/v6_klassen24.py}
-\textbf{Property mit Dekorateuren:} Auf pythonische Art und Weise.\\
-\url{https://docs.python.org/3/glossary.html#term-decorator}
-\lstinputlisting{listings/v6_klassen25.py}
+\begin{minipage}[t]{0.34\textwidth}
+	$\quad$ \\[30pt]
+	Setter- und Getter-Methoden für private Instanz-Variablen auf phytonsche Art und Weise implementieren.\\
+	\textbf{Konventionell:} Set- und Get-Methoden explizit benutzen.
+\end{minipage}
+\begin{minipage}[t]{0.02\textwidth} $\quad$ \end{minipage}
+\begin{minipage}[t]{0.64\textwidth}
+	\lstinputlisting{listings/v6_klassen23.py}
+\end{minipage}
+
+\begin{minipage}[t]{0.34\textwidth}
+		$\quad$ \\[35pt]
+	\textbf{Property:} Von aussen wie auf eine öffentliche Variable zugreifen, Set- und Get-Methoden werden implizit aufgerufen.\\
+	\url{https://docs.python.org/3/library/functions.html#property}
+\end{minipage}
+\begin{minipage}[t]{0.02\textwidth} $\quad$ \end{minipage}
+\begin{minipage}[t]{0.64\textwidth}
+	\lstinputlisting{listings/v6_klassen24.py}
+\end{minipage}
+
+\begin{minipage}[t]{0.34\textwidth}
+	$\quad$ \\[35pt]
+	\textbf{Property mit Dekorateuren:} Auf pythonische Art und Weise.\\
+	\url{https://docs.python.org/3/glossary.html#term-decorator}
+\end{minipage}
+\begin{minipage}[t]{0.02\textwidth} $\quad$ \end{minipage}
+\begin{minipage}[t]{0.64\textwidth}
+	\lstinputlisting{listings/v6_klassen25.py}
+\end{minipage}
+
+
+
 
 \subsection{Magische Methoden}
 \begin{itemize}
@@ -187,45 +229,75 @@ Setter- und Getter-Methoden für private Instanz-Variablen auf phytonsche Art un
 \end{itemize}
 Sie sind spezielle Methoden, um Klassen besondere Fähigkeiten zu geben. Es werden hier nur einige Beispiele gezeigt.
 
-\subsubsection{Grundmethoden}
-\url{https://docs.python.org/3/reference/datamodel.html#basic-customization}\\
-Zwei davon haben wir schon kennengelernt:
-\begin{itemize}
-	\item \texttt{\_\_init\_\_()}
-	\item \texttt{\_\_del\_\_()}
-\end{itemize}
-Der Rückgabewert von \texttt{\_\_str\_\_()} gibt an, was \texttt{str(obj)} zurückgeben soll, z.B.:
-\lstinputlisting{listings/v6_klassen26.py}
 
-\subsubsection{Numerische Datentypen emulieren}
-\url{https://docs.python.org/3/reference/datamodel.html#emulating-numeric-types}\\
-Der Rückgabewert von \texttt{\_\_float\_\_()} gibt an, was \texttt{float(obj)} zurückgeben soll.\\
-Mit der \texttt{\_\_add\_\_()}-Methode wird der + Operator überladen.\\
-Mit der \texttt{\_\_sub\_\_()}-Methode wird der - Operator überladen.
-\lstinputlisting{listings/v6_klassen27.py}
-
-\subsection{Klassen testen}
-\begin{itemize}
-	\item Klassen werden in separate Pythondateien gespeichert
-	\item Testcode in die gleiche Datei integrieren
-	\item Testcode in eine \texttt{if}-Anweisung platzieren:
-	\item[\-] \lstinputlisting{listings/v6_klassen28.py}
-\end{itemize}
-\lstinputlisting{listings/v6_my_module.py}
-\lstinputlisting{listings/scripts/my_other_module.py}
-
-\subsection{Eigenes Modul importieren}
-\begin{itemize}
-	\item Klasse aus einer separaten Pythondatei importieren
+\begin{minipage}[t]{0.44\textwidth}
+	\subsubsection{Grundmethoden}
+	\url{https://docs.python.org/3/reference/datamodel.html#basic-customization}\\
+	Zwei davon haben wir schon kennengelernt:
 	\begin{itemize}
-		\item aus dem gleichen Verzeichnis
-		\item aus einem anderen Verzeichnis
+		\item \texttt{\_\_init\_\_()}
+		\item \texttt{\_\_del\_\_()}
 	\end{itemize}
-\end{itemize}
-\url{https://docs.python.org/3/tutorial/modules.html}\\
+	Der Rückgabewert von \texttt{\_\_str\_\_()} gibt an, was \texttt{str(obj)} zurückgeben soll.
+\end{minipage}
+\begin{minipage}[t]{0.02\textwidth} $\quad$ \end{minipage}
+\begin{minipage}[t]{0.54\textwidth}
+	\lstinputlisting{listings/v6_klassen26.py}
+\end{minipage}
 
-\subsubsection{Aus dem gleichen Verzeichnis}
-\lstinputlisting{listings/v6_klassen29.py}
 
-\subsubsection{Aus einem andere Verzeichnis}
-\lstinputlisting{listings/v6_klassen30.py}
+\begin{minipage}[t]{0.44\textwidth}
+	\subsubsection{Numerische Datentypen emulieren}
+	\url{https://docs.python.org/3/reference/datamodel.html#emulating-numeric-types}\\
+	Der Rückgabewert von \texttt{\_\_float\_\_()} gibt an, was \texttt{float(obj)} zurückgeben soll.\\
+	Mit der \texttt{\_\_add\_\_()}-Methode wird der + Operator überladen.\\
+	Mit der \texttt{\_\_sub\_\_()}-Methode wird der - Operator überladen.
+\end{minipage}
+\begin{minipage}[t]{0.02\textwidth} $\quad$ \end{minipage}
+\begin{minipage}[t]{0.54\textwidth}
+	\lstinputlisting{listings/v6_klassen27.py}
+\end{minipage}
+
+
+
+\begin{minipage}[t]{0.54\textwidth}
+	\subsection{Klassen testen}
+	\begin{itemize}
+		\item Klassen werden in separate Pythondateien gespeichert
+		\item Testcode in die gleiche Datei integrieren
+		\item Testcode in eine \texttt{if}-Anweisung platzieren:
+	\end{itemize}
+\end{minipage}
+\begin{minipage}[t]{0.02\textwidth} $\quad$ \end{minipage}
+\begin{minipage}[t]{0.44\textwidth}
+	\lstinputlisting{listings/v6_klassen28.py}
+\end{minipage}
+
+\begin{minipage}[t]{0.49\textwidth}
+	\lstinputlisting{listings/v6_my_module.py}
+	\subsection{Eigenes Modul importieren}
+	\begin{itemize}
+		\item Klasse aus einer separaten Pythondatei importieren
+		\begin{itemize}
+			\item aus dem gleichen Verzeichnis
+			\item aus einem anderen Verzeichnis
+		\end{itemize}
+	\end{itemize}
+	\url{https://docs.python.org/3/tutorial/modules.html}\\
+\end{minipage}
+\begin{minipage}[t]{0.02\textwidth} $\quad$ \end{minipage}
+\begin{minipage}[t]{0.49\textwidth}
+	\lstinputlisting{listings/scripts/my_other_module.py}
+\end{minipage}
+
+
+
+\begin{minipage}[t]{0.49\textwidth}
+	\subsubsection{Aus dem gleichen Verzeichnis}
+	\lstinputlisting{listings/v6_klassen29.py}
+\end{minipage}
+\begin{minipage}[t]{0.02\textwidth} $\quad$ \end{minipage}
+\begin{minipage}[t]{0.49\textwidth}
+	\subsubsection{Aus einem andere Verzeichnis}
+	\lstinputlisting{listings/v6_klassen30.py}
+\end{minipage}

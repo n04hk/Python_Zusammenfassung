@@ -1,5 +1,7 @@
-f_lin = interpld(x, y)  # lineare Interpolation
-f_cub = interpld(x, y, kind='cubic')    # kubische Interpolation
+# lineare Interpolation
+f_lin = interpld(x, y)
+# kubische Interpolation
+f_cub = interpld(x, y, kind='cubic')
 xnew = np.linspace(0, 10, num=101, endpoint=True)
 plt.figure()
 plt.plot(x, y, 'o', label='Stuetzwerte')
